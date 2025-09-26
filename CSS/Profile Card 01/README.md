@@ -17,7 +17,7 @@ It lives under `Personal-Projects/CSS` in this repository.
 
 ### Animation Demo
 
-![Animation Demo](./demo.webm)
+![Animation Demo](./demo.gif)
 
 ---
 

@@ -1,0 +1,18 @@
+p {
+  width: 200px;
+  height: 100px;
+  background: lightblue;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* Presentational styles */
+body {
+  font-family: sans-serif;
+  padding: 2em;
+}
+
+article p:first-of-type {
+  color: red;
+  font-size: 1.5em;
+}

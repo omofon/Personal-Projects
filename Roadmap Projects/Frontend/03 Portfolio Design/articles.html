@@ -7,50 +7,44 @@
   </head>
   <body>
     <!-- Navigation Menu -->
-    <nav id="nav">
-      <h2 id="nav-title">Abasiomofon Udoh</h2>
-      <ul id="nav-menu">
+    <nav class="navbar">
+      <h2 class="navbar-title">Abasiomofon Udoh</h2>
+      <ul class="navbar-menu">
         <li><a href="home.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="articles.html">Articles</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <form action="/search" method="GET">
-        <input type="text" name="q" id="search" placeholder="Search..." />
+      <form class="search-form" action="/search" method="GET">
+        <input type="text" name="q" placeholder="Search..." />
         <button type="submit">Search</button>
       </form>
     </nav>
 
     <!-- Header -->
-    <header>
-      <h1>Technical Articles & Blog Posts</h1>
-      <p>
+    <header class="header">
+      <h1 class="header-title">Technical Articles & Blog Posts</h1>
+      <p class="header-text">
         Sharing knowledge and insights from my software development journey.
       </p>
     </header>
 
     <!-- Social Media -->
-    <section>
-      <h2>Follow my handles to get articles</h2>
-      <ul>
-        <li>
-          <a href="https://medium.com/omofon" target="_blank">Medium</a>
-        </li>
-        <li>
-          <a href="https://dev.to" target="_blank">Dev.to</a>
-        </li>
-        <li>
-          <a href="#" target="_blank">GitHub</a>
-        </li>
-        <li>
-          <a href="#" target="_blank">LinkedIn</a>
-        </li>
+    <section id="social" class="section social">
+      <h2 class="section-title">Follow my handles to get articles</h2>
+      <ul class="social-links">
+        <li><a href="https://medium.com/omofon" target="_blank">Medium</a></li>
+        <li><a href="https://dev.to" target="_blank">Dev.to</a></li>
+        <li><a href="#" target="_blank">GitHub</a></li>
+        <li><a href="#" target="_blank">LinkedIn</a></li>
       </ul>
     </section>
 
-    <main>
-      <section>
-        <h2>Building Scalable REST APIs with Django</h2>
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Article -->
+      <section class="article-preview">
+        <h2 class="article-title">Building Scalable REST APIs with Django</h2>
         <p><strong>Status:</strong> Coming Soon</p>
         <p>
           <strong>Topics:</strong> Django, REST API, Backend Development,
@@ -60,8 +54,7 @@
           <strong>Description:</strong> A comprehensive guide on creating robust
           and scalable REST APIs using Django REST Framework. This article
           covers authentication systems, serialization techniques, and best
-          practices for production deployment based on my experience building
-          APIs for various projects.
+          practices for production deployment.
         </p>
         <p><strong>What you'll learn:</strong></p>
         <ul>
@@ -73,18 +66,20 @@
         </ul>
       </section>
 
-      <section>
-        <h2>Machine Learning for Academic Performance Prediction</h2>
+      <section class="article-preview">
+        <h2 class="article-title">
+          Machine Learning for Academic Performance Prediction
+        </h2>
         <p><strong>Status:</strong> Coming Soon</p>
         <p>
           <strong>Topics:</strong> Machine Learning, Python, Data Science,
           Education Technology
         </p>
         <p>
-          <strong>Description:</strong> Exploring how machine learning
-          algorithms can be used to predict student performance and create
-          personalized learning experiences. Based on my AI-Assisted CGPA
-          Calculator project that improved academic performance by 18%.
+          <strong>Description:</strong> Exploring how ML algorithms can predict
+          student performance and create personalized learning experiences.
+          Based on my AI-Assisted CGPA Calculator project that improved academic
+          performance by 18%.
         </p>
         <p><strong>What you'll learn:</strong></p>
         <ul>
@@ -96,96 +91,104 @@
         </ul>
       </section>
 
-      <section>
-        <h2>Secure Authentication Systems: OAuth vs JWT</h2>
+      <section class="article-preview">
+        <h2 class="article-title">
+          Secure Authentication Systems: OAuth vs JWT
+        </h2>
         <p><strong>Status:</strong> Coming Soon</p>
         <p>
           <strong>Topics:</strong> Authentication, Security, OAuth, JWT, Web
           Security
         </p>
         <p>
-          <strong>Description:</strong> A deep dive into implementing secure
-          authentication systems in web applications. Drawing from my experience
-          reducing login-related issues by 30% in production applications.
+          <strong>Description:</strong> A deep dive into secure authentication
+          systems. Drawing from my experience reducing login-related issues by
+          30% in production apps.
         </p>
         <p><strong>What you'll learn:</strong></p>
         <ul>
           <li>Understanding OAuth 2.0 flow</li>
           <li>JWT token structure and validation</li>
-          <li>Security best practices and common vulnerabilities</li>
-          <li>Implementation strategies for different frameworks</li>
+          <li>Security best practices and vulnerabilities</li>
+          <li>Implementation strategies for frameworks</li>
           <li>Testing authentication systems</li>
         </ul>
       </section>
 
-      <section>
-        <h2>Modern Frontend Development with React and Vite</h2>
+      <section class="article-preview">
+        <h2 class="article-title">
+          Modern Frontend Development with React and Vite
+        </h2>
         <p><strong>Status:</strong> Coming Soon</p>
         <p>
           <strong>Topics:</strong> React.js, Vite, Frontend Development,
           Performance
         </p>
         <p>
-          <strong>Description:</strong> Discover the power of Vite for faster
-          development and learn advanced React patterns for building dynamic
-          user interfaces. Based on my experience building responsive
-          applications with optimized performance.
+          <strong>Description:</strong> Discover Vite for faster development and
+          learn advanced React patterns for dynamic UIs. Based on my experience
+          building responsive applications.
         </p>
         <p><strong>What you'll learn:</strong></p>
         <ul>
-          <li>Setting up Vite for React development</li>
+          <li>Setting up Vite for React</li>
           <li>Advanced React hooks and patterns</li>
           <li>Performance optimization techniques</li>
           <li>State management strategies</li>
-          <li>Building responsive, cross-device applications</li>
+          <li>Responsive cross-device apps</li>
         </ul>
       </section>
 
-      <section>
-        <h2>Web3 and Blockchain Integration for Developers</h2>
+      <section class="article-preview">
+        <h2 class="article-title">
+          Web3 and Blockchain Integration for Developers
+        </h2>
         <p><strong>Status:</strong> Coming Soon</p>
         <p>
           <strong>Topics:</strong> Web3, Blockchain, NFT, Smart Contracts, DeFi
         </p>
         <p>
           <strong>Description:</strong> A practical guide to integrating
-          blockchain technologies in web applications. Learn from my experience
-          building the WaveAlpha Web3 Community Platform that serves 500+ users.
+          blockchain in web apps. Based on my experience building the WaveAlpha
+          Web3 Community Platform.
         </p>
         <p><strong>What you'll learn:</strong></p>
         <ul>
-          <li>Understanding blockchain fundamentals</li>
+          <li>Blockchain fundamentals</li>
           <li>Integrating Web3 APIs</li>
           <li>NFT management systems</li>
           <li>Smart contract interaction</li>
-          <li>Building decentralized applications</li>
+          <li>Building decentralized apps</li>
         </ul>
       </section>
 
-      <section>
-        <h2>From Mechanical Engineering to Software Development</h2>
+      <section class="article-preview">
+        <h2 class="article-title">
+          From Mechanical Engineering to Software Development
+        </h2>
         <p><strong>Status:</strong> Coming Soon</p>
         <p>
           <strong>Topics:</strong> Career Transition, Learning Path,
           Engineering, Software Development
         </p>
         <p>
-          <strong>Description:</strong> My personal journey transitioning from
-          Mechanical Engineering to Software Development, including challenges
-          faced, skills transferred, and lessons learned along the way.
+          <strong>Description:</strong> My journey transitioning from Mechanical
+          Engineering to Software Development — challenges faced, skills
+          transferred, and lessons learned.
         </p>
         <p><strong>What you'll learn:</strong></p>
         <ul>
-          <li>Transferable skills from engineering to software development</li>
-          <li>Effective learning strategies for career change</li>
+          <li>Transferable skills from engineering to software</li>
+          <li>Learning strategies for career change</li>
           <li>Building a portfolio while studying</li>
-          <li>Balancing academic commitments with skill development</li>
-          <li>Finding internship and job opportunities</li>
+          <li>Balancing academics with skill growth</li>
+          <li>Finding internships and job opportunities</li>
         </ul>
       </section>
     </main>
+
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
       <p>
         Contact me at:
         <a href="mailto:omofon.u@gmail.com">omofon.u@gmail.com</a>

@@ -1,0 +1,128 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #222;
+  padding: 1rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 2px solid #000;
+  margin-bottom: 1.5rem;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #333;
+}
+
+.header-text {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Education, Experience, Skills layout */
+.edu-item,
+.exp-item,
+.skills-category {
+  border: 1px solid #000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Projects + Skills grid (desktop) */
+#education,
+#experience,
+#skills {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  border-top: 2px solid #000;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  /* Three-column layout like wireframe */
+  #education,
+  #experience,
+  #skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #education,
+  #experience,
+  #skills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

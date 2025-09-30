@@ -5,11 +5,13 @@ body {
   background: aliceblue;
   display: flex;
   justify-content: center;
-  margin: 50vh;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .container {
-  background: white;
+  background: #fcfcfc;
   box-sizing: border-box;
   width: 320px;
   padding: 20px;
@@ -17,25 +19,27 @@ body {
   border-radius: 20px;
 }
 
-/* QR Styles */
-.qr {
-  box-sizing: content-box;
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-  }
+.qr img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
 }
 
-/* Text styles */
 .text {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  padding: 10px;
+}
 
-  .main-text {
-    font-weight: 800;
-    line-height: 1.5;
-  }
+.main-text {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-block: 10px;
+}
+
+.sub-text {
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.5);
+  margin-block: 10px;
 }

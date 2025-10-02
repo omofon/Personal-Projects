@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  background: #fff;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid #020202;
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.min {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.title {
+  font-weight: 500;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* space between logs */
+  width: 100%;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 160px 40px 1fr; /* date | line | log */
+  align-items: start;
+}
+
+.date {
+  text-align: right;
+  padding-right: 15px;
+  font-size: 0.95rem;
+}
+
+.line {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #333; /* vertical line */
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background: #333;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.log {
+  padding-left: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #333;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px;
+  }
+
+  .date {
+    text-align: left;
+    padding: 0;
+    font-size: 0.85rem;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .log {
+    padding: 0;
+  }
+}

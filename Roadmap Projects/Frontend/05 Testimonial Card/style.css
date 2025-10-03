@@ -1,0 +1,44 @@
+.quote {
+  position: relative;
+  padding: 1em 2em;
+  font-style: italic;
+  border-left: 4px solid #ccc;
+}
+
+.quote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.2em;
+  font-size: 3em;
+  line-height: 1;
+  color: #999;
+}
+
+.quote::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0.2em;
+  font-size: 3em;
+  line-height: 1;
+  color: #999;
+}
+
+.quote::first-letter {
+  font-size: 3rem;
+  font-weight: bold;
+  float: left;
+  margin-inline-end: 0.25em;
+  color: #333;
+}
+
+.fancy-list li::marker {
+  color: darkgreen;
+  font-size: 1.2em;
+  content: "🍒 "; /* you can override the bullet */
+}
+
+article > * + * {
+  margin-top: 1em;
+}

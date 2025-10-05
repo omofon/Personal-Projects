@@ -161,10 +161,40 @@ body {
 
 /* CARD 4 */
 .card4 {
-  max-width: 70vb;
+  background: white;
+  align-self: flex-start;
+  width: 70vb;
+  height: auto;
   border: 1px solid #111;
-  padding: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  justify-content: center;
+}
+
+.card4 .main-avatar4 {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.card4 .sub-avatar4 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.card4 .sub-avatar5 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  opacity: 0.5;
 }

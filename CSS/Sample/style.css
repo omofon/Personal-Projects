@@ -99,7 +99,6 @@ body {
   overflow: hidden;
 }
 
-/* optional glossy stripe using pseudo-element */
 .btn-glass::after {
   content: "";
   position: absolute;

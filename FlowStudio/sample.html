@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FlowStudio — Day 1</title>
+    <meta
+      name="description"
+      content="FlowStudio — creative studio landing (Day 1 build)"
+    />
+
+    <style>
+      :root {
+        --bg1: #0f1724;
+        --bg2: #0b1020;
+        --accent1: #7c5cff;
+        --accent2: #00d4ff;
+        --glass: rgba(255, 255, 255, 0.06);
+        --glass-2: rgba(255, 255, 255, 0.04);
+        --muted: rgba(255, 255, 255, 0.7);
+        --radius: 16px;
+        color-scheme: dark;
+      }
+
+      /* Reset-ish */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(124, 92, 255, 0.14),
+            transparent 8%
+          ),
+          radial-gradient(
+            900px 500px at 90% 90%,
+            rgba(0, 212, 255, 0.06),
+            transparent 10%
+          ),
+          linear-gradient(180deg, var(--bg1), var(--bg2));
+        -webkit-font-smoothing: antialiased;
+        color: #e6eef8;
+        line-height: 1.4;
+        padding: 48px 32px;
+      }
+
+      /* Layout */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent1), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      }
+      nav ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .cta {
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        padding: 10px 14px;
+        border-radius: 999px;
+        color: #071226;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 6px 22px rgba(124, 92, 255, 0.12),
+          0 2px 6px rgba(0, 212, 255, 0.06);
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 32px;
+        align-items: start;
+        margin-bottom: 56px;
+      }
+      .hero-left {
+        max-width: 760px;
+      }
+      h1 {
+        font-size: clamp(28px, 4.6vw, 48px);
+        margin: 0 0 18px 0;
+        letter-spacing: -0.02em;
+        line-height: 1.02;
+        background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.7));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .lead {
+        color: var(--muted);
+        margin-bottom: 22px;
+        font-size: 15px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .btn-ghost {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: transparent;
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* Floating visual */
+      .hero-right {
+        position: relative;
+        min-height: 280px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .visual {
+        width: 100%;
+        max-width: 380px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.02)
+        );
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        overflow: hidden;
+        position: relative;
+      }
+      .visual .card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .dot {
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--accent2), var(--accent1));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+      .visual .title {
+        font-weight: 700;
+      }
+
+      /* Stats */
+      .stats {
+        display: flex;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .stat {
+        background: var(--glass);
+        padding: 14px 18px;
+        border-radius: 12px;
+        min-width: 120px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .stat b {
+        display: block;
+        font-size: 20px;
+      }
+
+      /* Services grid */
+      .services {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .service {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        box-shadow: 0 8px 24px rgba(2, 6, 23, 0.5);
+      }
+      .service h4 {
+        margin: 0 0 8px 0;
+      }
+      .service p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        margin: 48px 0;
+        display: flex;
+        gap: 12px;
+        overflow: auto;
+        padding-bottom: 8px;
+      }
+      .testimonial {
+        min-width: 260px;
+        background: var(--glass-2);
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .testimonial p {
+        margin: 0 0 12px 0;
+        color: var(--muted);
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+        padding-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      footer small {
+        color: var(--muted);
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-bottom: 12px;
+        }
+        .services {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        nav ul {
+          display: none;
+        }
+        header {
+          gap: 12px;
+        }
+        .services {
+          grid-template-columns: 1fr;
+        }
+        .visual {
+          max-width: 100%;
+        }
+      }
+
+      /* Micro animations */
+      .visual::before {
+        content: "";
+        position: absolute;
+        inset: -40% -40%;
+        background: radial-gradient(
+            800px 400px at 10% 10%,
+            rgba(124, 92, 255, 0.06),
+            transparent 6%
+          ),
+          radial-gradient(
+            600px 300px at 90% 90%,
+            rgba(0, 212, 255, 0.03),
+            transparent 6%
+          );
+        transform: rotate(-8deg);
+        pointer-events: none;
+        transition: transform 0.8s ease;
+      }
+      .visual:hover::before {
+        transform: rotate(0deg) translateY(-6px);
+      }
+      .card,
+      .service,
+      .stat,
+      .testimonial {
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .card:hover,
+      .service:hover,
+      .stat:hover,
+      .testimonial:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(2, 6, 23, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a class="brand" href="#">
+          <div class="logo">FS</div>
+          <div>
+            <div style="font-weight: 700">FlowStudio</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 2px">
+              Day 1 — Landing
+            </div>
+          </div>
+        </a>
+
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+
+        <div style="display: flex; gap: 10px; align-items: center">
+          <a class="btn-ghost" href="#contact">Contact</a>
+          <a class="cta" href="#start">Get Started</a>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Emotion-driven design that moves people — and metrics</h1>
+          <p class="lead">
+            We craft thoughtful digital experiences: brand systems, interfaces,
+            and product design that connect with users. Today’s build focuses on
+            responsive layout, glass cards, gradients and micro-interactions.
+          </p>
+
+          <div class="hero-actions">
+            <a class="cta" href="#work">See our work</a>
+            <a class="btn-ghost" href="#services">Our services</a>
+          </div>
+
+          <div class="stats" style="margin-top: 18px">
+            <div class="stat">
+              <b>329+</b><small style="color: var(--muted)">projects</small>
+            </div>
+            <div class="stat">
+              <b>99%</b><small style="color: var(--muted)">satisfaction</small>
+            </div>
+            <div class="stat">
+              <b>05+</b><small style="color: var(--muted)">years</small>
+            </div>
+          </div>
+
+          <div class="services" id="services" style="margin-top: 20px">
+            <div class="service">
+              <h4>Brand Design</h4>
+              <p>
+                Visual identity, systems and design language for memorable
+                brands and consistent experiences.
+              </p>
+            </div>
+            <div class="service">
+              <h4>UI / UX</h4>
+              <p>
+                Research-led product interfaces, wireframes and prototypes that
+                ship faster and test sooner.
+              </p>
+            </div>
+            <div class="service">
+              <h4>Front-end Dev</h4>
+              <p>
+                Pixel-faithful, accessible HTML & CSS with progressive
+                enhancements and performance in mind.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="visual" aria-hidden="true">
+            <div class="card">
+              <div class="dot">01</div>
+              <div>
+                <div class="title">Campaign dashboard</div>
+                <div style="font-size: 13px; color: var(--muted)">
+                  Realtime metrics & insights
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div
+                class="dot"
+                style="background: linear-gradient(90deg, #ff8a65, #ffcf65)"
+              >
+                02
+              </div>
+              <div>
+                <div class="title">Prototype preview</div>
+                <div style="font-size: 13px; color: var(--muted)">
+                  Clickable flows & feedback
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+                align-items: center;
+                justify-content: space-between;
+              "
+            >
+              <div style="font-weight: 700">Latest Projects</div>
+              <div style="font-size: 13px; color: var(--muted)">view all →</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Testimonials -->
+      <section>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          "
+        >
+          <h3 style="margin: 0">Impact we created</h3>
+          <a href="#testimonials" class="btn-ghost">Read more</a>
+        </div>
+
+        <div
+          class="testimonials"
+          id="testimonials"
+          aria-label="Client testimonials"
+        >
+          <figure class="testimonial">
+            <p>
+              "FlowStudio's approach transformed how we talk to customers —
+              results were visible within weeks."
+            </p>
+            <figcaption style="font-weight: 700">— Jordan B., CEO</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <p>
+              "Design quality and speed were exceptional. Clear thinking,
+              beautiful execution."
+            </p>
+            <figcaption style="font-weight: 700">
+              — Priya M., Product Lead
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <p>
+              "They helped us align our brand and product UI into one cohesive
+              system that scales."
+            </p>
+            <figcaption style="font-weight: 700">— Omar K., Founder</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <footer>
+        <small
+          >&copy; <span id="year"></span> FlowStudio — Built for Day 1
+          practice</small
+        >
+        <div style="display: flex; gap: 12px">
+          <a class="btn-ghost" href="#privacy">Privacy</a>
+          <a class="btn-ghost" href="#license">License</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // small niceties
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // optionally: keyboard hint for small screens (toggle nav)
+      (function () {
+        // no-js friendly small nav toggle (keeps file small)
+      })();
+    </script>
+  </body>
+</html>

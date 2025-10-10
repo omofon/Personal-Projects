@@ -12,53 +12,144 @@
     />
     <link rel="stylesheet" href="styles/index.css" />
   </head>
+
   <body>
     <div class="container">
-      <div class="bg-container">
-        <header>
-          <!-- Logo -->
+      
+      <!-- HEADER -->
+      <header>
+        <div class="header-brand">
           <a href="#" class="brand">
             <div class="logo">
               <img src="assets/logo/logo-nobg.png" alt="FlowStudio logo" />
             </div>
             <span class="brand-name">FlowStudio</span>
           </a>
+        </div>
 
-          <!-- Nav Menu -->
+        <div class="header-nav">
           <nav>
             <ul>
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">ABOUT US</a></li>
-              <li><a href="#">SERVICES</a></li>
-              <li><a href="#">TESTIMONIAL</a></li>
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
             </ul>
           </nav>
+        </div>
 
-          <!-- CTA Header -->
+        <div class="header-cta">
           <div class="cta-header">
-            <a href="#" class="cta-btn">
-              GET STARTED
+            <a href="#cta" class="cta-btn">
+              Get Started
               <img
                 src="https://img.icons8.com/ios/50/eaeaea/right--v1.png"
                 alt="arrow icon"
               />
             </a>
           </div>
-        </header>
+        </div>
+      </header>
 
+      <main>
         <!-- HERO SECTION -->
-        <section class="hero">
+        <section id="hero" class="hero">
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <h2>We Create Digital Flow</h2>
-            <p>
-              Design. Experience. Innovation. Let’s bring ideas to life with
-              creative flow and precision.
+            <div class="hero-main">
+              <h2>
+                Design. <br />
+                Experience. <br />
+                Innovation.
+              </h2>
+            </div>
+            <p class="hero-sub">
+              Let’s bring ideas to life with creative flow and precision.
             </p>
-            <a href="#" class="cta-hero">Explore Our Work</a>
+            <a href="#projects" class="cta-hero">Explore Our Work</a>
           </div>
         </section>
-      </div>
+
+        <!-- ABOUT -->
+        <section id="about" class="about section">
+          <h2>About Us</h2>
+          <p>
+            FlowStudio is a digital creative agency passionate about crafting
+            delightful experiences and memorable visual identities for brands
+            that move the world forward.
+          </p>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="services section">
+          <h2>Our Services</h2>
+          <div class="service-grid">
+            <div class="service-card">
+              <h3>Brand Identity</h3>
+              <p>We build timeless brand systems that stand out and connect.</p>
+            </div>
+            <div class="service-card">
+              <h3>Web Design</h3>
+              <p>Responsive, modern, and intuitive digital experiences.</p>
+            </div>
+            <div class="service-card">
+              <h3>Product Strategy</h3>
+              <p>We align business goals with design-driven solutions.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="projects section">
+          <h2>Featured Work</h2>
+          <div class="project-grid">
+            <div class="project-card">
+              <img src="assets/images/project1.jpg" alt="Project 1" />
+              <h3>Creative Dashboard</h3>
+            </div>
+            <div class="project-card">
+              <img src="assets/images/project2.jpg" alt="Project 2" />
+              <h3>Brand Refresh</h3>
+            </div>
+            <div class="project-card">
+              <img src="assets/images/project3.jpg" alt="Project 3" />
+              <h3>Portfolio Design</h3>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="testimonials section">
+          <h2>What Our Clients Say</h2>
+          <div class="testimonial-grid">
+            <div class="testimonial">
+              <p>
+                “FlowStudio helped us redefine our visual direction — their
+                creativity is unmatched.”
+              </p>
+              <h4>- Alex Carter</h4>
+            </div>
+            <div class="testimonial">
+              <p>
+                “They deliver not just designs, but design systems that work.”
+              </p>
+              <h4>- Morgan Lee</h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="cta section">
+          <h2>Ready to start your next project?</h2>
+          <a href="#contact" class="cta-hero">Let’s Work Together</a>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer>
+        <p>© 2025 FlowStudio. All rights reserved.</p>
+      </footer>
     </div>
   </body>
 </html>

@@ -14,8 +14,7 @@
   </head>
 
   <body>
-    <div class="container">
-      
+    <div class="main-container">
       <!-- HEADER -->
       <header>
         <div class="header-brand">
@@ -50,8 +49,16 @@
             </a>
           </div>
         </div>
+
+        <div class="menu-toggle">
+          <img
+            src="https://img.icons8.com/ios-filled/50/eaeaea/menu--v1.png"
+            alt="menu icon"
+          />
+        </div>
       </header>
 
+      <!-- MAIN -->
       <main>
         <!-- HERO SECTION -->
         <section id="hero" class="hero">
@@ -71,14 +78,24 @@
           </div>
         </section>
 
-        <!-- ABOUT -->
+        <!-- ABOUT SECTION -->
         <section id="about" class="about section">
-          <h2>About Us</h2>
-          <p>
-            FlowStudio is a digital creative agency passionate about crafting
-            delightful experiences and memorable visual identities for brands
-            that move the world forward.
-          </p>
+          <div class="container about-inner">
+            <div class="about-image">
+              <img
+                src="assets/images/dillon-wanner-lUvxKH8lW4g-unsplash.jpg"
+                alt="About FlowStudio"
+              />
+            </div>
+
+            <div class="about-content">
+              <h2>About Us</h2>
+              <hr />
+              <p>
+                FlowStudio is a creative digital agency dedicated to designing bold, memorable brand experiences.Founded in 2021, we’ve helped over 250 businesses grow through purposeful design, strategy, and storytelling.We believe great brands don’t just look good — they feel right.
+              </p>
+            </div>
+          </div>
         </section>
 
         <!-- SERVICES -->
@@ -151,5 +168,14 @@
         <p>© 2025 FlowStudio. All rights reserved.</p>
       </footer>
     </div>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".header-nav");
+
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>

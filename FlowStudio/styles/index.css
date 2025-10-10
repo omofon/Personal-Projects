@@ -1,11 +1,11 @@
+/* Poppins Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Poppins + Space Mono */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* Merriweather */
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@font-face {
-  font-family: "AsgardTrial";
-  src: url("assets/fonts/AsgardTrial-FitBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
 
 :root {
   --bg1: #0f1724;
@@ -43,8 +43,7 @@ body {
 }
 
 body {
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial;
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(180deg, var(--bg1), var(--bg2));
   -webkit-font-smoothing: antialiased;
   color: var(--text);
@@ -53,7 +52,7 @@ body {
 }
 
 /* Layout */
-.container {
+.main-container {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -63,6 +62,14 @@ body {
 
 main {
   flex: 1;
+}
+
+/* Universal content container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
 /* ================= HEADER ================= */
@@ -108,12 +115,13 @@ header {
 }
 
 .header-brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .brand-name {
-  font-family: "Merriweather", serif;
+  font-family: "Space Mono", monospace;
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.3px;
@@ -177,59 +185,203 @@ nav a:hover::after {
   color: var(--text);
   border: 1px solid var(--text-secondary);
   text-decoration: none;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 100px;
-  font-weight: 500; /* lighter */
+  font-weight: 300;
   font-size: 0.8rem;
   transition: all 0.25s ease;
 }
+
 .cta-btn img {
   width: 16px;
   height: 16px;
   opacity: 0.8;
   transition: transform 0.25s ease;
 }
+
 .cta-btn:hover {
   color: var(--accent2);
   border-color: var(--accent2);
   background: rgba(0, 212, 255, 0.08);
 }
+
 .cta-btn:active img {
   transform: translateX(3px);
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.menu-toggle img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.85;
+}
+
+.menu-toggle:hover {
+  opacity: 0.6;
 }
 
 /* ================= HERO SECTION ================= */
 .hero {
   position: relative;
   height: 100vh;
-  color: #fff;
+  color: var(--text);
   background: url("../assets/images/daniela-almeida-ys2phgbHfJU-unsplash.jpg")
     center/cover no-repeat;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Overlay to darken background slightly */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(15, 23, 36, 0.9), rgba(15, 23, 36, 0.9));
+  background: linear-gradient(rgba(15, 23, 36, 0.8), rgba(15, 23, 36, 0.8));
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  header {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-3);
+/* Hero Content */
+.hero-content {
+  margin: var(--space-6);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: clamp(320px, 60vw, 900px);
+  gap: var(--space-5);
+  padding: 0 var(--space-4);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-main {
+  top: 0;
+  left: 0;
+}
+
+.hero-main h2 {
+  font-family: "Merriweather", serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--text);
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 600px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cta-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  color: #fff;
+  text-decoration: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(124, 92, 255, 0.4);
+}
+
+.cta-hero:active {
+  transform: translateY(-2px);
+}
+
+/* ================= ABOUT SECTION ================= */
+.about {
+  padding-block: 5rem;
+}
+
+.about-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.about-content hr {
+  width: 50px;
+  border: none;
+  height: 2px;
+  background: var(--accent2);
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+
+
+/* ================= RESPONSIVE HEADER ================= */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex; /* show hamburger */
   }
+
+  .header-nav {
+    display: none; /* hide full nav by default */
+  }
+
+  /* Optional: toggle nav open when .active is added */
+  .header-nav.active {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .cta-header {
-    margin-top: var(--space-2);
-  }
-  .hero h2 {
-    font-size: 2rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 }

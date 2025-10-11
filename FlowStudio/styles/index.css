@@ -632,6 +632,45 @@ nav a:hover::after {
   box-shadow: 0 6px 18px rgba(0, 212, 255, 0.25);
 }
 
+/* ================= FOOTER ================= */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+footer img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+footer p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer img {
+    margin-bottom: 0.5rem;
+  }
+}
+
 /* Responsive spacing */
 @media (max-width: 768px) {
   .cta {

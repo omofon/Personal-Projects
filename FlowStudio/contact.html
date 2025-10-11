@@ -21,24 +21,28 @@
           </a>
         </div>
 
-        <nav class="header-nav">
-          <ul>
-            <li><a href="index.html#hero">Home</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#testimonials">Testimonials</a></li>
-          </ul>
-        </nav>
+        <div class="header-nav">
+          <nav>
+            <ul>
+              <li><a href="index.html#hero">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+            </ul>
+          </nav>
+        </div>
 
-        <div class="cta-header">
-          <a href="index.html#cta" class="cta-btn">
-            Get Started
-            <img
-              src="https://img.icons8.com/ios/50/eaeaea/right--v1.png"
-              alt="arrow icon"
-            />
-          </a>
+        <div class="header-cta">
+          <div class="cta-header">
+            <a href="contact.html" class="cta-btn">
+              Get Started
+              <img
+                src="https://img.icons8.com/ios/50/eaeaea/right--v1.png"
+                alt="arrow icon"
+              />
+            </a>
+          </div>
         </div>
 
         <div class="menu-toggle">
@@ -115,7 +119,9 @@
         const form = document.getElementById("contactForm");
         form.addEventListener("submit", (e) => {
           e.preventDefault();
-          alert("Thank you for contacting FlowStudio! We'll get back to you soon.");
+          alert(
+            "Thank you for contacting FlowStudio! We'll get back to you soon."
+          );
           form.reset();
         });
       });

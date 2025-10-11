@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowStudio - Creative Digital Studio</title>
+    <link rel="icon" type="image/png" href="assets/logo/logo-nobg.png" />
+    <link rel="stylesheet" href="styles/contact.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- HEADER -->
+      <header>
+        <div class="header-brand">
+          <a href="#" class="brand">
+            <div class="logo">
+              <img src="assets/logo/logo-nobg.png" alt="FlowStudio logo" />
+            </div>
+            <span class="brand-name">FlowStudio</span>
+          </a>
+        </div>
+
+        <nav class="header-nav">
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta-header">
+          <a href="index.html#cta" class="cta-btn">
+            Get Started
+            <img
+              src="https://img.icons8.com/ios/50/eaeaea/right--v1.png"
+              alt="arrow icon"
+            />
+          </a>
+        </div>
+
+        <div class="menu-toggle">
+          <img
+            src="https://img.icons8.com/ios-filled/50/eaeaea/menu--v1.png"
+            alt="menu icon"
+          />
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <main>
+        <section class="contact-section">
+          <h2>Contact Us</h2>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" placeholder="John" required />
+            </div>
+
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Doe" required />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                title="Enter a valid email address"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="+234 808 123 4567"
+                title="Include country code e.g. +234 for Nigeria"
+                pattern="^\+?\d{7,15}$"
+              />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                placeholder="Type your message..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="button-row">
+              <button type="submit" class="send-btn">Send Message</button>
+              <button type="reset" class="close-btn">Clear Form</button>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer>
+        <img src="assets/logo/logo-nobg.png" alt="Brand-logo" />
+        <p>© 2025 FlowStudio Creative Agency. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you for contacting FlowStudio! We'll get back to you soon.");
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>

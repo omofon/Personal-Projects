@@ -1,0 +1,234 @@
+/* ========== GOOGLE FONTS ========== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap");
+
+/* ========== ROOT VARIABLES ========== */
+:root {
+  --bg1: #0f1724;
+  --accent1: #7c5cff;
+  --accent2: #00d4ff;
+  --text: #1a1a1a;
+  --text-light: #666;
+  --radius: 12px;
+  --max-width: 1200px;
+  --space: 1.2rem;
+}
+
+/* ========== GLOBAL STYLES ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background: #f8f9fc;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========== HEADER ========== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text);
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.brand-name {
+  font-family: "Space Mono", monospace;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: var(--accent1);
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--accent1);
+  border-radius: 100px;
+  text-decoration: none;
+  color: var(--accent1);
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: var(--accent1);
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+  max-width: 700px;
+  margin: 7rem auto 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--bg1);
+}
+
+/* Form grid */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent1);
+  box-shadow: 0 0 6px rgba(124, 92, 255, 0.3);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Buttons */
+.button-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.send-btn {
+  background: var(--accent1);
+}
+
+.close-btn {
+  background: #cc3333;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  form {
+    grid-template-columns: 1fr;
+  }
+  .button-row {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1600px) {
+  .contact-section {
+    max-width: 900px;
+    padding: 3rem;
+  }
+}

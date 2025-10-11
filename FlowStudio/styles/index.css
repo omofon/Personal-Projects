@@ -422,7 +422,6 @@ nav a:hover::after {
 }
 
 /* ================= PROJECTS SECTION ================= */
-/* ================= PROJECTS SECTION ================= */
 .projects {
   margin-block: 5rem;
 }
@@ -514,6 +513,87 @@ nav a:hover::after {
 
 .project-card:hover::after {
   transform: translate(4px, -4px);
+}
+
+/* ================= TESTIMONIALS SECTION ================= */
+.testimonials {
+  margin-block: 6rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-family: "Merriweather", serif;
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 3rem;
+}
+
+.testimonial-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Individual testimonial card */
+.testimonial {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem 3rem;
+  color: var(--text);
+  max-width: 320px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Testimonial text */
+.testimonial p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* Avatar styling */
+.testimonial img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--accent2);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Author name */
+.testimonial h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent2);
+  margin-top: 1rem;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial {
+    max-width: 90%;
+  }
 }
 
 /* Responsive grid adjustments */

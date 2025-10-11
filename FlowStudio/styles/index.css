@@ -584,6 +584,70 @@ nav a:hover::after {
   margin-top: 1rem;
 }
 
+/* ================= CTA SECTION ================= */
+.cta {
+  text-align: center;
+  margin-block: 6rem;
+  padding: 4rem 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.1),
+    rgba(0, 0, 0, 0.25)
+  );
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cta h2 {
+  font-family: "Merriweather", serif;
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.3px;
+}
+
+/* CTA button style */
+.cta-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--accent2);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.cta-hero:hover {
+  background: transparent;
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 212, 255, 0.25);
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+  .cta {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta h2 {
+    font-size: 1.4rem;
+  }
+
+  .cta-hero {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.85rem;
+  }
+}
+
 /* Responsive layout */
 @media (max-width: 768px) {
   .testimonial-grid {

@@ -517,7 +517,7 @@ nav a:hover::after {
 
 /* ================= TESTIMONIALS SECTION ================= */
 .testimonials {
-  margin-block: 6rem;
+  margin-block: 5rem;
   text-align: center;
 }
 
@@ -709,11 +709,11 @@ footer p {
 /* ================= RESPONSIVE HEADER ================= */
 @media (max-width: 900px) {
   .menu-toggle {
-    display: flex; /* show hamburger */
+    display: flex;
   }
 
   .header-nav {
-    display: none; /* hide full nav by default */
+    display: none;
   }
 
   /* Optional: toggle nav open when .active is added */

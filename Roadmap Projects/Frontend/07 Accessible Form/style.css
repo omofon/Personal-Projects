@@ -1,0 +1,46 @@
+:root {
+  --sub-black: #020202;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background: whitesmoke;
+  color: var(--sub-black);
+}
+
+header {
+  font-weight: bolder;
+  text-shadow: 0 2px 4px #3d3b3b;
+}
+
+.container {
+  border: 1px solid var(--sub-black);
+  border-radius: 1.5rem;
+  width: clamp(60vw, 75vw, 90vw);
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  outline: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress {
+  font-weight: 700;
+  font-size: 1.5rem;
+}

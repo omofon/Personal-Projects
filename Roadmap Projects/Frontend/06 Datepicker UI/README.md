@@ -2,7 +2,13 @@
 
 A clean and intuitive datepicker component built with HTML and CSS. This project is part of the [roadmap.sh](https://roadmap.sh/projects/datepicker-ui) frontend projects.
 
-![Datepicker UI](assets/datepicker-preview.png)
+### Preview from Roadmap.sh
+
+![Datepicker Draft](assets/datepicker-preview.png)
+
+### Result
+
+![Datepicker UI](assets/datepicker.png)
 
 ## Project Overview
 
@@ -26,7 +32,6 @@ datepicker-ui/
 ├── index.html
 ├── style.css
 ├── assets/
-│   └── calendar-and-clock-time-administration-and-organization-tools-symbol-svgrepo-com.svg
 └── README.md
 ```
 

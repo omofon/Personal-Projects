@@ -33,7 +33,7 @@ header {
   margin-bottom: 2px;
 }
 
-.date-button  {
+.date-button {
   width: 32px;
   height: 32px;
   justify-content: center;
@@ -64,13 +64,14 @@ header {
   border: 1px solid black;
 }
 
-.box-flex {
+.calendar-header {
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
   padding: 4px;
   transition: all 0.3s ease-in-out;
+  margin-block: 4px;
 }
 
 .triangle-left {
@@ -119,6 +120,16 @@ header {
   transform: rotate(0);
 }
 
-th {
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
   border-bottom: 1px solid black;
 }
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+

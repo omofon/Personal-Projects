@@ -1,3 +1,54 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+header {
+  display: inline-block;
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 2rem;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  border: 1px solid black;
+  display: flex;
+  box-sizing: content-box;
+  margin-bottom: 4px;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.3);
+}
+.button:active {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.calendar img {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+}
 .triangle-left {
   width: 0;
   height: 0;

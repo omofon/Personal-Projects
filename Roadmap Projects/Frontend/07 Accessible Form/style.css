@@ -10,13 +10,8 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  background: whitesmoke;
+  background: #fff;
   color: var(--sub-black);
-}
-
-header {
-  font-weight: bolder;
-  text-shadow: 0 2px 4px #3d3b3b;
 }
 
 .container {
@@ -27,8 +22,25 @@ header {
   display: flex;
   gap: 1rem;
   padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
+.left-container {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  box-sizing: content-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+header {
+  font-weight: bolder;
+  text-shadow: 0 2px 4px #3d3b3b;
+}
 .circle {
   width: 100px;
   height: 100px;

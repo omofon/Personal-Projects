@@ -11,27 +11,33 @@
     <div class="container">
       <div class="left-container">
         <form>
-          <label for="fullName">Full Name</label>
-          <input
-            type="text"
-            name="fullName"
-            placeholder="What should we call you?"
-          />
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" placeholder="John" />
+          </div>
 
-          <label for="email">Email</label>
-          <input type="email" name="email" placeholder="john@doe.com" />
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="john@doe.com" />
+          </div>
 
-          <label for="password">Enter Password</label>
-          <input type="password" name="password" placeholder="xxxxxxxx" />
+          <div class="form-group">
+            <label for="password">Enter Password</label>
+            <input type="password" name="password" placeholder="xxxxxxxx" />
+          </div>
 
-          <label for="confirm-password">Confirm Password</label>
-          <input
-            type="password"
-            name="confirm-password"
-            placeholder="xxxxxxxx"
-          />
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              name="confirm-password"
+              placeholder="xxxxxxxx"
+            />
+          </div>
 
-          <button type="submit">Update Profile</button>
+          <div class="btn">
+            <button type="submit">Update Profile</button>
+          </div>
         </form>
       </div>
       <div class="right-container">

@@ -11,9 +11,9 @@
       <h2>Datepicker UI</h2>
     </header>
     <main class="container">
-      <div class="title">
+      <div class="date-input">
         <input type="text" name="date" placeholder="dd / mm / yyyy" />
-        <div class="button calendar">
+        <div class="date-button">
           <img
             src="assets/calendar-and-clock-time-administration-and-organization-tools-symbol-svgrepo-com.svg"
             alt="calendar"
@@ -22,66 +22,34 @@
       </div>
       <div class="box">
         <div class="box-flex">
-          <button><div class="triangle-left"></div></button>
+          <div class="triangle-left"></div>
           <span>December 2022</span>
-          <button><div class="triangle-right"></div></button>
+          <div class="triangle-right"></div>
         </div>
-        <table>
-          <tr>
-            <th>S</th>
-            <th>M</th>
-            <th>T</th>
-            <th>W</th>
-            <th>T</th>
-            <th>F</th>
-            <th>S</th>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-          </tr>
-          <tr>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-            <td>31</td>
-          </tr>
-        </table>
+        <div class="calendar-wrapper">
+          <div class="calendar-header">
+            <h2>October 2025</h2>
+          </div>
+          <div class="day-names">
+            <div class="day-name">Sun</div>
+            <div class="day-name">Mon</div>
+            <div class="day-name">Tue</div>
+            <div class="day-name">Wed</div>
+            <div class="day-name">Thu</div>
+            <div class="day-name">Fri</div>
+            <div class="day-name">Sat</div>
+          </div>
+          <div class="calendar-grid">
+            <div class="day empty"></div>
+            <!-- Empty cells for days before the 1st -->
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <!-- ... more day elements ... -->
+            <div class="day">31</div>
+            <div class="day empty"></div>
+            <!-- Empty cells for days after the last day -->
+          </div>
+        </div>
       </div>
     </main>
   </body>

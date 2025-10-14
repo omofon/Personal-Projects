@@ -18,16 +18,22 @@ header {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+.date-input input {
+  width: 192px;
 }
 
-.title {
+.date-input {
   border: 1px solid black;
   display: flex;
   box-sizing: content-box;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.button {
+.date-button  {
   width: 32px;
   height: 32px;
   justify-content: center;
@@ -35,20 +41,38 @@ header {
   border: 1px solid black;
   transition: all 0.3s ease;
 }
-.button:hover {
+.date-button:hover {
   background: rgba(0, 0, 0, 0.3);
   box-shadow: rgba(0, 0, 0, 0.3);
 }
-.button:active {
+.date-button:active {
   background: rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
-.calendar img {
+.date-button img {
   width: 24px;
   height: 24px;
   padding: 4px;
 }
+
+.calendar-wrapper {
+  width: 234px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.box-flex {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
 .triangle-left {
   width: 0;
   height: 0;
@@ -65,4 +89,36 @@ header {
   border-bottom: 12px solid transparent;
   border-left: 12px solid black;
   transform: rotate(-5deg);
+}
+
+.triangle-left:hover {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid rgba(0, 0, 0, 0.6);
+  transform: rotate(-5deg);
+}
+
+.triangle-left:active {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid rgba(0, 0, 0, 0.6);
+  transform: rotate(0);
+}
+
+.triangle-right:hover {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid rgba(0, 0, 0, 0.6);
+  transform: rotate(-5deg);
+}
+
+.triangle-right:active {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid rgba(0, 0, 0, 0.6);
+  transform: rotate(0);
+}
+
+th {
+  border-bottom: 1px solid black;
 }

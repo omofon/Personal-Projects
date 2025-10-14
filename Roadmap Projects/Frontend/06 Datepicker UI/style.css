@@ -131,5 +131,11 @@ header {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-row: 8pxs;
 }
 
+.day {
+  padding: auto;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  text-align: center;
+}

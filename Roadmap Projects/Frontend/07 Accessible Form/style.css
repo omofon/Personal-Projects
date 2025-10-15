@@ -14,13 +14,18 @@ body {
   color: var(--sub-black);
 }
 
+header {
+  font-weight: bolder;
+  text-shadow: 0 2px 4px #3d3b3b;
+}
+
 .container {
   border: 1px solid var(--sub-black);
   border-radius: 1.5rem;
   box-sizing: content-box;
   height: auto;
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   padding: 1rem;
   margin: 3rem auto;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -36,7 +41,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 1rem;
 }
 
 .form-group {
@@ -45,23 +50,59 @@ form {
 }
 
 label {
-  font-size: 0.85rem;
-  color: #555;
+  font-size: 1rem;
+  color: var(--sub-black);
   margin-bottom: 0.4rem;
 }
 
 input {
   font-size: 0.9rem;
   padding: 0.8rem;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
+  border: 1.5px solid var(--sub-black);
+  border-radius: 4px;
   transition: all 0.2s ease;
 }
 
-header {
-  font-weight: bolder;
-  text-shadow: 0 2px 4px #3d3b3b;
+input:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 6px rgba(0, 119, 204, 0.3);
 }
+
+input:required {
+  border-color: red;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background: var(--sub-black);
+  color: whitesmoke;
+  min-width: 240px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  gap: 01rem;
+  padding: 8px;
+  box-sizing: content-box;
+  align-items: center;
+}
+
 .circle {
   width: 100px;
   height: 100px;
@@ -76,4 +117,25 @@ header {
 .progress {
   font-weight: 700;
   font-size: 1.5rem;
+}
+
+.desc-box {
+  background: #cccccc60;
+  width: auto;
+  height: 240px;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info {
+  color: var(--sub-black);
+}
+
+.dashed {
+  color: grey;
+  text-decoration: line-through;
 }

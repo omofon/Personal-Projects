@@ -2,7 +2,7 @@
 
 ## 🏢 About the Brand
 
-FlowStudio is a digital creative agency that blends design, storytelling, and technology to craft interactive digital experiences. We help brands flow seamlessly between creativity and functionality — turning bold ideas into beautiful, usable realities.
+FlowStudio is a digital creative agency that blends design, storytelling, and technology to craft interactive digital experiences. We help brands flow seamlessly between creativity and functionality, turning bold ideas into beautiful, usable realities.
 
 Think of it as a space where motion, colour, and clarity meet balance.
 
@@ -20,7 +20,7 @@ Basically: "We want users to feel the creativity the moment they land, not just 
 
 ## 🧭 Focal Point of the Website
 
-The Hero section is the heartbeat — it should immediately grab attention through:
+The Hero section is the heartbeat, it immediately grabs attention through:
 
 - A creative tagline
 - Subtle motion (animated gradients, floating shapes, or smooth transitions)

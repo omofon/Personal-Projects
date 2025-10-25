@@ -7,7 +7,17 @@ body {
 }
 
 .gallery {
-  background-image: url;
+  background-image: url("assets/grey-bg.jpg");
+  object-fit: cover;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  width: clamp(350px, 90vw, 1000px);
   display: grid;
-  width: clamp;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1em;
+  grid-template-areas:
+    "box1 box2 box3"
+    "box1 box5 box3"
+    "box4 box5 box6";
 }

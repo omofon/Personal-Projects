@@ -62,6 +62,10 @@ body {
   fill: white;
 }
 
+.socials-container a:active {
+  transform: translateY(2px);
+}
+
 .socials-container a::after {
   content: "";
   position: absolute;

@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Setup */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Header Styles */
+header {
+  background: rgb(232, 232, 232);
+  padding: 0.5rem 3rem;
+  border-bottom: 1px solid #111827;
+  box-shadow: 0px 2px 12px gray;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  flex: 1;
+}
+
+.nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #111827;
+  font-size: larger;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.nav a::before {
+  content: attr(data-nav);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 24px);
+  background: #0f172a;
+  color: #f3f4f6;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-size: 0.875em;
+  text-align: center;
+  width: max-content;
+  max-width: 240px;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.nav a:hover::before {
+  opacity: 1;
+}
+
+.nav a:hover {
+  color: orange;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #0f172a transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover::before,
+.nav a:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.actions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}

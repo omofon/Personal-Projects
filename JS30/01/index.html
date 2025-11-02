@@ -6,9 +6,12 @@
     <title>Day 01 of JS</title>
   </head>
   <body>
-    <button onclick="alert('Welcome to 30DaysofJavaScript!')">Click Me!</button>
+    <button id="myButton">Click Me!</button>
+
+    <script src="intro.js"></script>
     <script>
-      console.log("Welcome to 30DaysofJavaScript!");
+        const button = document.getElementById('myButton')
+        button.addEventListener('click', doSomething);
     </script>
   </body>
 </html>

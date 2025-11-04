@@ -1,12 +1,14 @@
 // FizzBuzz
 function fizzBuzz() {
   for (let i = 1; i <= 100; i++) {
-    if (i % 3 == 0) {
+    if (i % 3 == 0 && i % 5 == 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 == 0) {
       console.log("Fizz");
     } else if (i % 5 == 0) {
       console.log("Buzz");
-    } else if (i % 3 == 0 && i % 5 == 0) {
-      console.log("FizzBuzz");
+    } else {
+      console.log(i);
     }
   }
 }
@@ -14,38 +16,35 @@ function fizzBuzz() {
 // Reverse String
 function reverseString(str) {
   let inverse = "";
-  let count = str.length;
 
-  for (let i = 0; i < count; i++) {
-    for (let c = count - 1; c <= 0; c--) {
-      inverse[i] = str[c];
-    }
+  for (let i = str.length - 1; i >= 0; i--) {
+    inverse += str[i];
   }
   return inverse;
 }
 
 // Palindrome
 function isPalindrome(str) {
-  const count = str.length;
-  const reverse = reverseString(str);
+  const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+  let left = 0;
+  let right = cleaned.length - 1;
 
-  for (let left = 0; left < count; left++) {
-    for (let right = count - 1; right < 0; right--) {
-      if (str[left] !== str[right]) {
-        return false;
-      } else {
-        return true;
-      }
+  while (left < right) {
+    if (cleaned[left] !== cleaned[right]) {
+      return false;
     }
+    left++;
+    right--;
   }
+  return true;
 }
 
 // Max Number
 function findMax(arr) {
-  let max;
-  for (let num of arr) {
-    if (num >= max) {
-      max = num;
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[1] > max) {
+      max = arr[i];
     }
   }
   return max;
@@ -53,23 +52,21 @@ function findMax(arr) {
 
 // Count Vowels
 function countVowels(str) {
-  const vowels = ["a", "e", "i", "o", "u"];
+  const vowels = "aeiouAEIOU";
   let count = 0;
 
-  for (let vowel of vowels) {
-    // Is ther sth like if vowel in str for js
-    for (let i of str) {
-      if (i.toLowerCase() === vowel) {
-        count++;
-      }
+  for (let char of str) {
+    if (vowels.includes(char)) {
+      count++;
     }
   }
+  return count;
 }
 
 // Sum of Arrays
 const sumArray = (arr) => {
   let sum = 0;
-  for (item in arr) {
+  for (let item of arr) {
     sum += item;
   }
   return sum;
@@ -77,38 +74,54 @@ const sumArray = (arr) => {
 
 // Factorial
 function factorialIterative(n) {
-  return factorialIterative(n - 1) * n;
+  if (n == 0) return 1;
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+function factorialRecursive(n) {
+  if (n === 0 || n === 1) return 1;
+  return n * factorialRecursive(n - 1);
 }
 
 // Looping a triangle
 function printTriangle(height) {
+  let line = "";
   for (let i = 1; i <= height; i++) {
-    for (let x = 1; x <= height; x++) {
-      console.log("*" * x);
-    }
+    line += "#";
+    console.log(line);
   }
 }
 
 function chessboard(size) {
-  for (let y = 1; y<=size; y++) {
-    for (let x=1; x<=size; x++) {
-      if ((x+y) % 2 == 0) {
-        console.log(" ");
+  board = "";
+  for (let row = 0; row < size; row++) {
+    for (let col = 0; col < size; col++) {
+      if ((row + col) % 2 === 0) {
+        board += " ";
       } else {
-        console.log("#")
+        board += "#";
       }
     }
+    board += "\n";
   }
+  console.log(board);
 }
 
 function countChar(str, char) {
   let count = 0;
-  for (i in str) {
-    if (i == char) {
+  const lowerStr = str.toLowerCase();
+  const lowerChar = char.toLowerCase();
+
+  for (let c of lowerStr) {
+    if (c === lowerChar) {
       count++;
     }
   }
-  return count
+  return count;
 }
 
 // Tests
@@ -133,9 +146,8 @@ console.log(factorialIterative(5)); // 120 (5 × 4 × 3 × 2 × 1)
 console.log(factorialRecursive(5)); // 120
 console.log(factorialIterative(0)); // 1 (edge case)
 
-
 chessboard(8);
 
-console.log(countChar("hello", "l"));        // 2
-console.log(countChar("JavaScript", "a"));   // 2 (case-insensitive)
-console.log(countChar("Mississippi", "s"));  // 4
+console.log(countChar("hello", "l")); // 2
+console.log(countChar("JavaScript", "a")); // 2 (case-insensitive)
+console.log(countChar("Mississippi", "s")); // 4

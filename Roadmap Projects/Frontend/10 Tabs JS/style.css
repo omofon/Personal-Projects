@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 600px;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.tab-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #e5e5e5;
+  position: relative;
+}
+
+.tab-box .tab-btn {
+  font-size: 18px;
+  font-weight: 500;
+  color: #919191;
+  background: none;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.tab-box .tab-btn.active {
+  color: #7360ff;
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 90px;
+  background-color: #7360ff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.content-box {
+  padding: 20px;
+}
+
+.content-box .content {
+  display: none;
+  animation: moving 0.5s ease;
+}
+
+.content-box .content.active {
+  display: block;
+}
+
+.content-box .content h2 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.content-box .content p {
+  color: #555;
+  font-size: 15px;
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

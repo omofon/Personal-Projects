@@ -14,7 +14,7 @@ This repository documents my coding journey and continuous learning process. Eac
 
 ### 🎯 Recent Work
 
-#### [Tooltip UI](https://roadmap.sh/projects/tooltip-ui)
+#### [Tabs](https://roadmap.sh/projects/simple-tabs)
 A CSS-only tooltip interface with smooth hover animations and custom arrow pointers.
 
 **Technologies:** HTML5, CSS3 (Pseudo-elements, Flexbox)  

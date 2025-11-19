@@ -12,7 +12,9 @@
   --font-size: 15px;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,10 +39,38 @@ ol[role="list"] {
   list-style: none;
 }
 
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  font-size: var(--font-size);
-  background: var(--color-grey-400);
+  background: var(--color-grey-50);
+  min-height: 100dvh;
+  color: var(--color-grey-500);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.main-container {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 3rem;
+}
+
+.intro {
+  text-align: center;
+  margin: 0 auto;
+  width: clamp(20rem, 80%, 31.25rem);
 }
 
 .attribution {

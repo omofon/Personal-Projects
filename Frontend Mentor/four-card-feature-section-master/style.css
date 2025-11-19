@@ -20,6 +20,26 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--color-grey-50);
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  line-height: 1.5;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 h1,
 p {
   margin: 0;
@@ -39,41 +59,16 @@ img {
   display: block;
 }
 
-html {
-  font-size: var(--font-size);
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background: var(--color-grey-50);
-  min-height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-  padding: 2rem;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-
+/* Main Container */
 .main-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
+  max-width: 375px;
+  width: 100%;
 }
 
 /* Intro Section */
 .intro {
   text-align: center;
-  margin: 0 auto;
-  text-wrap: wrap;
+  margin-bottom: 4rem;
 }
 
 .intro h1 {
@@ -92,34 +87,42 @@ body {
 /* Features Section */
 .features {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .feature-card {
   position: relative;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  overflow: hidden;
+  padding: 1.75rem;
   background: var(--color-white);
   border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  color: var(--color-white);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   transition: transform 300ms ease-in-out;
+  min-height: 220px;
 }
 
 .feature-card:hover {
   cursor: pointer;
-  transform: scale(1.01);
+  transform: translateY(-4px);
 }
 
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.feature-card img {
+  position: absolute;
+  bottom: 1.75rem;
+  right: 1.75rem;
+}
+
+/* Colored Top Lines */
 .line {
   width: 100%;
   height: 4px;
   position: absolute;
   left: 0;
   top: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .line[data-line-color="cyan"] {
@@ -138,15 +141,13 @@ body {
   background-color: var(--color-blue);
 }
 
-.feature-card img {
-  margin-left: auto;
-  margin-block: 2rem;
-}
-
+/* Attribution */
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-top: 2rem;
 }
+
 .attribution a {
   color: hsl(228, 45%, 44%);
 }

@@ -36,9 +36,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
 /* Mobile Screen < 600px */
 body {
-  font-family: "Barlow Semi Condensed", sans-serif;
+  font-family: var(--font-family);
   background: var(--color-grey-100);
   min-height: 100dvh;
   display: flex;
@@ -47,9 +54,44 @@ body {
   line-height: 1.5;
   flex-direction: column;
   gap: 3rem;
-  padding: 3rem 1.5rem;
+  padding: 3rem 2rem;
 }
 
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.testimonial-card {
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 20rem;
+}
+
+.card-purple {
+  background: var(--color-purple-500);
+  color: var(--color-white);
+}
+
+.card-gray-dark {
+  background: var(--color-grey-500);
+  color: var(--color-white);
+}
+
+.card-white {
+  background: var(--color-white);
+  color: var(--color-grey-400);
+}
+
+.card-navy {
+  background: var(--color-dark-blue);
+  color: var(--color-white);
+}
 /* Attribute Section */
 .attribution {
   font-size: 11px;

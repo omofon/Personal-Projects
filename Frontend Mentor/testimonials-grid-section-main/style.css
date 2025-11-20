@@ -18,7 +18,7 @@
   --font-family: "Barlow Semi Condensed", sans-serif;
   --font-weight-500: 500;
   --font-weight-600: 600;
-  --font-size-body: 13px;
+  --font-size: 13px;
 }
 
 *,
@@ -31,6 +31,7 @@
 
 html {
   font-size: var(--font-size);
+  font-weight: var(--font-weight-500);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,7 +55,7 @@ body {
   line-height: 1.5;
   flex-direction: column;
   gap: 3rem;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
 }
 
 .testimonials {
@@ -73,25 +74,104 @@ body {
   min-width: 20rem;
 }
 
+.card-title h3 {
+  font-weight: var(--font-weight-600);
+  color: var(--color-grey-100);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card-content h2 {
+  color: var(--color-white);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-600);
+}
+
+.card-content p {
+  line-height: 1.6;
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-600);
+  word-spacing: 1%;
+}
 .card-purple {
   background: var(--color-purple-500);
-  color: var(--color-white);
+  color: var(--color-grey-200);
+
+  .avatar-container {
+    outline: 2px solid var(--color-purple-300);
+  }
+
+  .card-content h2 {
+    color: var(--color-white);
+  }
 }
 
 .card-gray-dark {
   background: var(--color-grey-500);
-  color: var(--color-white);
+  color: var(--color-grey-200);
+
+  .avatar-container {
+    outline: 2px solid var(--color-grey-100);
+  }
+
+  .card-content h2 {
+    color: var(--color-grey-100);
+  }
 }
 
 .card-white {
   background: var(--color-white);
   color: var(--color-grey-400);
+
+  h3 {
+    color: var(--color-grey-400);
+  }
+  .card-content h2 {
+    color: var(--color-grey-500);
+  }
+  .avatar-container {
+    outline: 2px solid var(--color-grey-200);
+  }
 }
 
 .card-navy {
   background: var(--color-dark-blue);
-  color: var(--color-white);
+  color: var(--color-grey-200);
+
+  .avatar-container {
+    outline: 2px solid var(--color-purple-300);
+  }
+  .card-content h2 {
+    color: var(--color-grey-200);
+  }
 }
+
+.card-header {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.avatar-container {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Attribute Section */
 .attribution {
   font-size: 11px;
@@ -99,4 +179,8 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* Tablet Styling */
+@media (min-width: 600px) {
 }

@@ -162,6 +162,14 @@ img {
     max-width: 1110px;
   }
 
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro h2 {
+    font-size: 2rem;
+  }
+
   .features {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -176,7 +184,6 @@ img {
   }
 
   .features {
-    /* max-width: 80%; */
     display: grid;
     grid-template-columns: repeat(3, 315px);
     grid-template-rows: repeat(5, 1fr);

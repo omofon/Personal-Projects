@@ -125,6 +125,10 @@ body {
   color: var(--color-grey-200);
 }
 
+.card-purple .quote-svg {
+  display: none;
+}
+
 .card-gray-dark .avatar-container {
   outline: 2px solid var(--color-grey-100);
 }
@@ -171,6 +175,23 @@ body {
     width: 90%;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+  }
+
+  /* Visible Quotation Mark SVG */
+  .card-purple {
+    position: relative;
+  }
+
+  .card-purple .quote-svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 6rem;
+    width: 104px;
+    height: 104px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .card-large {

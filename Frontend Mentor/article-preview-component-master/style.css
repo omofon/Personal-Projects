@@ -152,6 +152,10 @@ p {
   z-index: 10;
 }
 
+svg {
+  width: 16px;
+  height: 16px;
+}
 .share-icon svg path {
   fill: var(--color-desaturated-dark-blue);
   transition: fill 0.2s ease;

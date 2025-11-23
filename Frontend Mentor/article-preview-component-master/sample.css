@@ -29,7 +29,7 @@ body {
   color: var(--color-very-dark-blue);
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-normal);
-
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,9 +38,7 @@ body {
   padding: 20px;
 }
 
-h1,
-h2,
-p {
+h1, h2, p {
   margin: 0;
   padding: 0;
 }
@@ -50,10 +48,10 @@ p {
   background-color: var(--color-white);
   border-radius: 10px;
   box-shadow: 0px 40px 40px -10px rgba(201, 213, 225, 0.5);
-
+  
   width: 730px;
   height: 280px;
-
+  
   display: flex;
 }
 
@@ -108,7 +106,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
+  margin-top: auto; 
   position: relative;
 }
 
@@ -153,12 +151,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20;
-}
-
-.share-icon svg {
-  width: 16px;
-  height: 16px;
+  transition: all 0.2s ease;
+  z-index: 20; /* Keep button above tooltip */
+  position: relative;
 }
 
 .share-icon svg path {
@@ -166,23 +161,23 @@ p {
   transition: fill 0.2s ease;
 }
 
+/* Hover State - Only minimal hover effect for button color, not popup */
 .share-icon:hover {
   background-color: var(--color-desaturated-dark-blue);
 }
-
 .share-icon:hover svg path {
   fill: var(--color-white);
 }
 
+/* Active State (Toggled by JS) */
 .share-icon.active-state {
   background-color: var(--color-desaturated-dark-blue);
 }
-
 .share-icon.active-state svg path {
   fill: var(--color-white);
 }
 
-/* --- Share Tooltip --- */
+/* --- Share Pop-up (Tooltip) --- */
 .share-tooltip {
   position: absolute;
   background-color: var(--color-very-dark-blue);
@@ -191,41 +186,53 @@ p {
   gap: 16px;
   padding: 18px 36px;
   border-radius: 10px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  
+  /* Position Logic (Desktop) */
+  bottom: 55px; /* Sits above the button */
+  right: -68px; /* Shifts right to center over button */
+  
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+  
+  /* Animation States */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 15;
+  pointer-events: none;
+}
 
-  bottom: 55px;
-  right: -120px;
+/* SHOW TOOLTIP ON CLICK (ACTIVE CLASS) */
+.share-tooltip.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .share-tooltip span {
   color: var(--color-grayish-blue);
   letter-spacing: 5px;
-  font-size: 0.875rem;
+  font-size: 13px;
   margin-right: 4px;
 }
 
 .share-tooltip a {
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s;
 }
-
 .share-tooltip a:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-.share-tooltip svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--color-white);
-}
-
+/* Tiny triangle pointing down (Desktop only) */
 .share-tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 100%; /* Bottom of tooltip */
   left: 50%;
-  margin-left: -8px;
+  margin-left: -8px; /* Center helper */
   border-width: 8px;
   border-style: solid;
   border-color: var(--color-very-dark-blue) transparent transparent transparent;
@@ -244,71 +251,67 @@ p {
   font-weight: 700;
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- MOBILE RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 768px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   .card {
     flex-direction: column;
     width: 327px;
     height: auto;
-    position: relative;
+    /* Re-enable overflow hidden so the tooltip corner clipping works nicely with card radius */
+    overflow: hidden; 
   }
-
+  
   .image-container {
     width: 100%;
     height: 200px;
+    border-radius: 10px 10px 0 0; /* Top corners rounded */
   }
-
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-
+  
   .content-container {
-    padding: 32px;
+    padding: 32px; 
     padding-bottom: 20px;
   }
-
+  
   .content-container h1 {
-    font-size: 16px;
+    font-size: 16px; 
     line-height: 24px;
-    margin-bottom: 12px;
   }
 
-  .content-container p {
-    margin-bottom: 32px;
-  }
-
-  .share-icon:active::after {
-    position: absolute;
-    bot
+  /* MOBILE TOOLTIP LOGIC: Overlays the entire footer area */
+  .avatar-container {
+    position: relative; 
+    z-index: 5;
   }
 
   .share-tooltip {
-    position: absolute;
-    left: -32px;
-    bottom: -18px; /* I want this to fill the botton of the card */
-    border-radius: 0 0 10px 10px;
-    width: 327px;
-    justify-content: flex-start;
-    /* padding: 28px; */
-    padding-left: 32px;
+    /* Fill the container */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+    /* Reset Desktop Positioning */
+    transform: none; 
     margin: 0;
-    gap: 12px;
+    
+    /* Visuals */
+    border-radius: 0 0 10px 10px; /* Match card bottom corners */
+    padding-left: 32px;
+    justify-content: flex-start;
+    align-items: center;
+    
+    /* Ensure it covers the author info */
+    z-index: 10; 
   }
+  
   .share-tooltip::after {
-    display: none;
+    display: none; /* Hide the triangle arrow */
   }
 
-  .avatar-container {
-    margin-top: 0;
+  /* When Active: Force button to look active */
+  .share-icon.active-state {
+    background-color: var(--color-desaturated-dark-blue);
   }
 }

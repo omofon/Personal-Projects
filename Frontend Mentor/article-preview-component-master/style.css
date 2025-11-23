@@ -55,7 +55,6 @@ p {
   height: 280px;
 
   display: flex;
-  overflow: hidden;
 }
 
 /* --- Left Image Section --- */
@@ -64,6 +63,9 @@ p {
   height: 100%;
   flex-shrink: 0;
   background-color: #6d8c92;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .image-container img {
@@ -78,6 +80,8 @@ p {
   padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: relative;
   width: 100%;
 }
 
@@ -105,6 +109,7 @@ p {
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
+  position: relative;
 }
 
 .avatar-box {
@@ -148,26 +153,82 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.2s ease;
-  z-index: 10;
+  z-index: 20;
 }
 
-svg {
+.share-icon svg {
   width: 16px;
   height: 16px;
 }
+
 .share-icon svg path {
   fill: var(--color-desaturated-dark-blue);
   transition: fill 0.2s ease;
 }
 
-/* Hover Effect for Desktop */
 .share-icon:hover {
   background-color: var(--color-desaturated-dark-blue);
 }
 
 .share-icon:hover svg path {
   fill: var(--color-white);
+}
+
+.share-icon.active-state {
+  background-color: var(--color-desaturated-dark-blue);
+}
+
+.share-icon.active-state svg path {
+  fill: var(--color-white);
+}
+
+/* --- Share Tooltip --- */
+.share-tooltip {
+  position: absolute;
+  background-color: var(--color-very-dark-blue);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 36px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+  bottom: 55px;
+  right: -120px;
+}
+
+.share-tooltip span {
+  color: var(--color-grayish-blue);
+  letter-spacing: 5px;
+  font-size: 0.875rem;
+  margin-right: 4px;
+}
+
+.share-tooltip a {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.share-tooltip a:hover {
+  transform: scale(1.1);
+}
+
+.share-tooltip svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-white);
+}
+
+.share-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: var(--color-very-dark-blue) transparent transparent transparent;
 }
 
 /* --- Attribution Styling --- */
@@ -183,49 +244,69 @@ svg {
   font-weight: 700;
 }
 
-/* --- Mobile Responsiveness (Optional but good practice) --- */
+/* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
-  .card {
-    /* Switch to stacked column layout */
+  body {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    /* Mobile Card Dimensions */
-    width: 327px; /* Matches standard mobile design width */
-    height: auto; /* Let content define height */
+  .card {
+    flex-direction: column;
+    width: 327px;
+    height: auto;
+    position: relative;
   }
 
   .image-container {
-    /* Full width, fixed height for hero image */
     width: 100%;
     height: 200px;
   }
 
   .image-container img {
-    /* Ensure image scales correctly */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; /* Focus on the top part of image usually */
+    object-position: top center;
   }
 
   .content-container {
-    /* Reduce padding for mobile */
     padding: 32px;
-    padding-bottom: 20px; /* Slightly tighter on bottom */
+    padding-bottom: 20px;
   }
 
   .content-container h1 {
-    /* Slightly smaller font for mobile readability */
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 12px;
   }
 
   .content-container p {
-    margin-bottom: 32px; /* Add more breathing room before footer */
+    margin-bottom: 32px;
+  }
+
+  .share-icon {
+    position: static;
+  }
+
+  .share-tooltip {
+    position: absolute;
+    left: -32px;
+    bottom: -18px; /* I want this to fill the botton of the card */
+    border-radius: 0 0 10px 10px;
+    width: 327px;
+    justify-content: flex-start;
+    padding: 28px;
+    padding-left: 32px;
+    margin: 0;
+  }
+  .share-tooltip::after {
+    display: none;
   }
 
   .avatar-container {
-    margin-top: 0; /* Reset auto margin since we are stacking */
+    margin-top: 0;
   }
 }

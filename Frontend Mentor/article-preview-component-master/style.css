@@ -265,7 +265,7 @@ p {
     flex-direction: column;
     width: 327px;
     height: auto;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .image-container {
@@ -277,6 +277,11 @@ p {
   .content-container {
     padding: 32px;
     padding-bottom: 20px;
+    position: relative;
+  }
+
+  .avatar-container {
+    position: static;
   }
 
   .content-container h1 {
@@ -284,38 +289,33 @@ p {
     line-height: 24px;
   }
 
-  .avatar-container {
-    position: relative;
-    z-index: 5;
-  }
-
-  .share-icon:active::after {
-    position: absolute;
-  }
-
   .share-tooltip {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
     transform: none;
-    margin: 0;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
 
     border-radius: 0 0 10px 10px;
-    padding-left: 32px;
+    padding: 0 32px;
+    margin: 0;
     justify-content: flex-start;
     align-items: center;
-
     z-index: 10;
+    box-shadow: none;
+  }
+
+  .share-tooltip.active {
+    opacity: 1;
+    visibility: visible;
   }
 
   .share-tooltip::after {
     display: none;
-  }
-
-  .share-icon.active-state {
-    background-color: var(--color-desaturated-dark-blue);
   }
 }

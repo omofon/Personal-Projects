@@ -81,7 +81,6 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
   width: 100%;
 }
 
@@ -154,6 +153,7 @@ p {
   justify-content: center;
   align-items: center;
   z-index: 20;
+  transition: all 0.2s ease;
 }
 
 .share-icon svg {
@@ -194,7 +194,22 @@ p {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 
   bottom: 55px;
-  right: -120px;
+  right: -119px;
+
+  /* Animation States */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.share-tooltip.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .share-tooltip span {
@@ -246,30 +261,17 @@ p {
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   .card {
     flex-direction: column;
     width: 327px;
     height: auto;
-    position: relative;
+    overflow: hidden;
   }
 
   .image-container {
     width: 100%;
     height: 200px;
-  }
-
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    border-radius: 10px 10px 0 0;
   }
 
   .content-container {
@@ -280,35 +282,40 @@ p {
   .content-container h1 {
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 12px;
   }
 
-  .content-container p {
-    margin-bottom: 32px;
+  .avatar-container {
+    position: relative;
+    z-index: 5;
   }
 
   .share-icon:active::after {
     position: absolute;
-    bot
   }
 
   .share-tooltip {
-    position: absolute;
-    left: -32px;
-    bottom: -18px; /* I want this to fill the botton of the card */
-    border-radius: 0 0 10px 10px;
-    width: 327px;
-    justify-content: flex-start;
-    /* padding: 28px; */
-    padding-left: 32px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: none;
     margin: 0;
-    gap: 12px;
+
+    border-radius: 0 0 10px 10px;
+    padding-left: 32px;
+    justify-content: flex-start;
+    align-items: center;
+
+    z-index: 10;
   }
+
   .share-tooltip::after {
     display: none;
   }
 
-  .avatar-container {
-    margin-top: 0;
+  .share-icon.active-state {
+    background-color: var(--color-desaturated-dark-blue);
   }
 }

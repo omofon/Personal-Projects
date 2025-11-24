@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --color-red: hsl(4, 100%, 67%);
+  --color-blue-800: hsl(234, 29%, 20%);
+  --color-blue-700: hsl(235, 18%, 26%);
+  --color-grey: hsl(0, 0%, 58%);
+  --color-white: hsl(0, 0%, 100%);
+  --font-size-nm: 16px;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-nm);
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-blue-700);
+  color: var(--color-blue-800);
+
+  min-height: 100dvh;
+}
+
+.newsletter-signup {
+    
+}
+.hidden {
+  display: none;
+}
+
+/* --- Attribution Footer */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

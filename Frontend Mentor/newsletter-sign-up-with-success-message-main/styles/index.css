@@ -248,9 +248,7 @@ h1 {
 .success-message {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   min-height: 100dvh;
   width: 100%;
@@ -258,11 +256,13 @@ h1 {
   background: var(--color-white);
 }
 
-/* .success-content {
+.success-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-} */
+  flex-grow: 1;
+  justify-content: flex-start;
+}
 
 .success-icon {
   display: block;
@@ -274,12 +274,10 @@ h1 {
 .success-message h1 {
   font-size: 2.5rem;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
 }
 
 .success-message p {
   line-height: 1.5;
-  margin-bottom: auto;
 }
 
 .success-message strong {
@@ -289,10 +287,6 @@ h1 {
 
 .success-message .dismiss-button {
   margin-top: auto;
-}
-
-.success-message .attribution {
-  color: var(--color-blue-800);
 }
 
 /* --- Success Message Styling (Desktop/Tablet) --- */

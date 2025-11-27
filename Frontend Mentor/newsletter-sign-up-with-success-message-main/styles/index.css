@@ -180,28 +180,40 @@ h1 {
     justify-content: center;
     align-items: center;
     padding: 0;
+    min-height: 100vh;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
   }
 
   .newsletter-signup {
     flex-direction: row;
-    gap: 3.5rem;
     max-width: 58rem;
-    width: 80%;
     height: 40rem;
     padding: 1.5rem;
-    padding-left: 4rem;
     border-radius: 2rem;
     min-height: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   }
 
+  /* Form Content (Left Side) */
   .form-content {
     order: 1;
-    padding: 0;
+    padding: 2rem 1.25rem;
     justify-content: center;
     flex: 1;
+    flex-grow: 1;
     max-width: 25rem;
   }
 
+  .form-info h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Illustration Section (Right Side) */
   .illustration-section {
     order: 2;
     flex: 1;
@@ -209,31 +221,38 @@ h1 {
     align-self: center;
     padding: 0;
     height: 100%;
+    max-width: 100%;
   }
 
   .signup-image {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 0.75rem;
   }
 
-  .form-info h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+  .form-content {
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  .form-info {
+    margin-bottom: 1rem;
+  }
+
+  .feature-list {
+    margin-top: 1rem;
   }
 }
 
 /* --- Success Message Styling (Mobile Default) --- */
 .success-message {
-  /* Full screen modal for mobile */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   min-height: 100dvh;
   width: 100%;
-  padding: 15vh 1.5rem 2.5rem 1.5rem; /* Large top padding to push content down */
+  padding: 15vh 1.5rem 2.5rem 1.5rem;
   background: var(--color-white);
 }
 
@@ -241,7 +260,6 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  /* Wrapper for text and icon */
 }
 
 .success-icon {
@@ -258,7 +276,7 @@ h1 {
 
 .success-message p {
   line-height: 1.5;
-  margin-bottom: auto; /* Pushes the button to the bottom */
+  margin-bottom: auto;
 }
 
 .success-message strong {
@@ -266,7 +284,6 @@ h1 {
   color: var(--color-blue-800);
 }
 
-/* Fix button position on mobile */
 .success-message .dismiss-button {
   margin-top: auto;
 }
@@ -274,7 +291,6 @@ h1 {
 /* --- Success Message Styling (Desktop/Tablet) --- */
 @media (min-width: 768px) {
   .success-message {
-    /* Center the small card */
     justify-content: center;
     align-items: center;
     min-height: 100dvh;
@@ -284,13 +300,12 @@ h1 {
   }
 
   .success-content {
-    width: 32rem; /* Fixed width for the success card */
+    width: 32rem;
     padding: 3rem;
     padding-top: 4rem;
     background: var(--color-white);
     border-radius: 2rem;
     height: auto;
-    /* Revert flex properties for desktop card layout */
     justify-content: flex-start;
     gap: 1.5rem;
   }

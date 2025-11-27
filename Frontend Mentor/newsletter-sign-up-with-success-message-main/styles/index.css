@@ -307,11 +307,17 @@ h1 {
     background: var(--color-white);
     border-radius: 2rem;
     height: auto;
+    flex-grow: 0;
     justify-content: flex-start;
     gap: 1.5rem;
   }
 
-  .success-message p {
+  .success-content h1 {
+    font-weight: var(--font-weight-bold);
+    font-size: 3.5rem;
+  }
+
+  .success-content p {
     margin-bottom: 2rem;
   }
 

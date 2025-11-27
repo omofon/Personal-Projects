@@ -21,7 +21,7 @@
 
   <body>
     <main>
-      <article class="newsletter-signup hidden">
+      <article class="newsletter-signup">
         <section class="form-content">
           <div class="form-info">
             <h1>Stay updated!</h1>
@@ -36,13 +36,17 @@
           </div>
 
           <form action="#" method="post" id="signup-form" class="signup-form">
-            <label for="email">Email address</label>
-            <span class="email-error"></span>
+            <div class="label-row">
+              <label for="email" class="email-label">Email address</label>
+              <span class="email-error">Valid email required</span>
+            </div>
             <input
               type="email"
               name="email"
               id="email"
-              placeholder="email@company.com"
+              placeholder="ash#loremcompany.com"
+              value="ash#loremcompany.com"
+              class="invalid"
             />
 
             <button type="submit" class="submit-button">
@@ -79,7 +83,7 @@
         </section>
       </article>
 
-      <article class="success-message">
+      <article class="success-message hidden">
         <div class="success-content">
           <img
             src="./assets/images/icon-success.svg"

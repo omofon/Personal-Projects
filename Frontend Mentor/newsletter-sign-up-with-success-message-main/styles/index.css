@@ -2,13 +2,14 @@
 
 :root {
   /* Primary Colors */
-  --color-red: hsl(4, 100%, 67%); /* Tomato */
+  --color-red: hsl(4, 100%, 67%);
+  --color-red-light: hsl(4, 100%, 97%);
 
   /* Neutral Colors */
-  --color-blue-800: hsl(234, 29%, 20%); /* Dark Slate Grey (main text/h1) */
-  --color-blue-700: hsl(235, 18%, 26%); /* Charcoal Grey (background/button) */
-  --color-grey-dark: hsl(231, 7%, 60%); /* Grey (placeholder/borders) */
-  --color-grey-light: hsl(0, 0%, 92%); /* Light Grey (input error background) */
+  --color-blue-800: hsl(234, 29%, 20%);
+  --color-blue-700: hsl(235, 18%, 26%);
+  --color-grey-dark: hsl(231, 7%, 60%);
+  --color-grey-light: hsl(0, 0%, 92%);
   --color-white: hsl(0, 0%, 100%);
 
   /* Custom Gradient Stop for Button Hover */
@@ -125,6 +126,14 @@ h1 {
   color: var(--color-blue-800);
 }
 
+.email-error {
+  color: var(--color-red);
+  font-weight: var(--font-weight-bold);
+  font-size: 0.75rem;
+  text-align: right;
+  min-width: 0;
+}
+
 .signup-form input {
   width: 100%;
   padding: 1.25rem 1.5rem;
@@ -143,6 +152,18 @@ h1 {
   outline: none;
   border-color: var(--color-blue-700);
   box-shadow: 0 0 0 1px var(--color-blue-700);
+}
+
+.signup-form input.invalid {
+  background-color: var(--color-red-light);
+  border: 1px solid var(--color-red);
+  color: var(--color-red);
+}
+
+.signup-form input.invalid:focus {
+  outline: none;
+  border-color: var(--color-red);
+  box-shadow: 0 0 0 1px var(--color-red);
 }
 
 /* Button Styling (Subscribe & Dismiss) */

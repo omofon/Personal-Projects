@@ -74,6 +74,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  /* ==== Add event listeners for time control buttons ==== */
+  const attachEventListeners = () => {
+    periodBtns.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const selectedPeriod = event.currentTarget.dataset.period;
+
+        if (actualData) {
+          renderData(actualData, selectedPeriod);
+
+          periodBtns.forEach((btn) =>
+            btn.classList.remove("time-controls__button--active")
+          );
+          event.currentTarget.classList.add("time-controls__buttons--active");
+        }
+      });
+    });
+  };
+
   /* ==== Creating a pipeline to ensure async functionality ==== */
   const initializePipeline = async () => {
     const data = await fetchData("/data.json");
@@ -82,10 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
       actualData = data;
       console.log("Data loaded succesfully.");
 
-      const weeklyData = getPeriodData(actualData, "weekly");
-      console.log(weeklyData);
-      //   renderData(actualData, "weekly");
-      //   attachEventListeners();
+      renderData(actualData, "weekly");
+      attachEventListeners();
     } else {
       console.error("Pipeline initialization failed.");
     }

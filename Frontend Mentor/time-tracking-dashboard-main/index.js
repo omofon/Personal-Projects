@@ -41,6 +41,39 @@ document.addEventListener("DOMContentLoaded", () => {
     return transformedData;
   };
 
+  /* ==== Renders data from getPeriodData to HTML Cards ==== */
+  const renderData = (data, period) => {
+    const periodData = getPeriodData(data, period);
+
+    let prevText = "Yesterday";
+    if (period === "Weekly") {
+      prevText = " Last Week";
+    } else if (period === "Monthly") {
+      prevText = "Last Month";
+    }
+
+    periodData.forEach((item) => {
+      const safeTitle = item.title.toLowerCase().replace(/\s/g, "-");
+      const cardElement = document.querySelector(
+        `.activity-card--${safeTitle}`
+      );
+
+      if (cardElement) {
+        const currentElement = cardElement.querySelector(
+          ".activity-card__current-time"
+        );
+        const previousElement = cardElement.querySelector(
+          ".activity-card__previous-time"
+        );
+
+        currentElement.textContent = `${item.current}hrs`;
+        previousElement.textContent = `${prevText} - ${item.previous}hrs`;
+      } else {
+        console.warn(`HTML card not found for title: ${item.title}`);
+      }
+    });
+  };
+
   /* ==== Creating a pipeline to ensure async functionality ==== */
   const initializePipeline = async () => {
     const data = await fetchData("/data.json");
@@ -49,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       actualData = data;
       console.log("Data loaded succesfully.");
 
-      const weeklyData = getPeriodData(actualData, "yearly");
+      const weeklyData = getPeriodData(actualData, "weekly");
       console.log(weeklyData);
       //   renderData(actualData, "weekly");
       //   attachEventListeners();

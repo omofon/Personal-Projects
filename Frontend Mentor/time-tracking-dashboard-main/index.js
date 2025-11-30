@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const periodData = getPeriodData(data, period);
 
     let prevText = "Yesterday";
-    if (period === "Weekly") {
+    if (period === "weekly") {
       prevText = " Last Week";
-    } else if (period === "Monthly") {
+    } else if (period === "monthly") {
       prevText = "Last Month";
     }
 

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Time tracking dashboard",
   "license": "ISC",
-  "author": "",
+  "author": "Omofon",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

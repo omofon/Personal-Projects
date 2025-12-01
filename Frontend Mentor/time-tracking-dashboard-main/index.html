@@ -39,7 +39,7 @@
           <ul class="time-controls__list flex justify-between">
             <li class="time-controls__item">
               <button
-                class="time-controls__button text-gray-400 hover:text-white transition-colors"
+                class="time-controls__button text-gray-400 hover:text-white transition-colors cursor-pointer"
                 data-period="daily"
               >
                 Daily
@@ -47,7 +47,7 @@
             </li>
             <li class="time-controls__item">
               <button
-                class="time-controls__button time-controls__button--active text-gray-400 hover:text-white transition-colors"
+                class="time-controls__button time-controls__button--active text-gray-400 hover:text-white transition-colors cursor-pointer"
                 data-period="weekly"
               >
                 Weekly
@@ -55,7 +55,7 @@
             </li>
             <li class="time-controls__item">
               <button
-                class="time-controls__button text-gray-400 hover:text-white transition-colors"
+                class="time-controls__button text-gray-400 hover:text-white transition-colors cursor-pointer"
                 data-period="monthly"
               >
                 Monthly
@@ -66,20 +66,32 @@
       </article>
 
       <!-- Activity Card: Work -->
-      <article class="activity-card activity-card--work">
-        <div class="activity-card__decorative-header">
-          <img src="/images/icon-work.svg" alt="Briefcase icon" />
+      <article
+        class="activity-card activity-card--work rounded-xl overflow-hiddem relative"
+      >
+        <div class="activity-card__decorative-header top-0 right-0 bg-work">
+          <img
+            src="/images/icon-work.svg"
+            alt="Briefcase icon"
+            class="mx-auto"
+          />
         </div>
 
-        <div class="activity-card__content-box">
-          <div class="activity-card__heading">
-            <h3 class="activity-card__title">Work</h3>
+        <div
+          class="activity-card__content-box bg-navy-900 p-6 rounded-xl hover:bg-opacity-75 transition-colors cursor-pointer -mt-6 relative z-10"
+        >
+          <div
+            class="activity-card__heading flex justify-between items-center mb-2"
+          >
+            <h3 class="activity-card__title text-lg font-medium text-white">
+              Work
+            </h3>
             <button class="activity-card__menu-btn">
               <img src="/images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
 
-          <div class="activity-card__time-data">
+          <activity-card__time-data">
             <h1 class="activity-card__current-time">32hrs</h1>
             <p class="activity-card__previous-time">Last Week - 36hrs</p>
           </div>

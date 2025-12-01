@@ -15,39 +15,49 @@
     <link rel="stylesheet" href="./styles/output.css" />
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
-  <body class="bg-navy-950 min-h-screen pt-14 pb-10 px-6 font-sans">
+  <body class="bg-navy-950 min-h-screen pt-14 pb-10 px-6 font-sans text-white">
     <main class="w-full max-w-sm mx-auto flex flex-col gap-6">
       <!-- Profile Card for User: Jeremy Robson -->
-      <article class="profile-card">
-        <section class="profile-card__report">
+      <article class="profile-card bg-navy-900 rounded-xl overflow-hidden">
+        <section
+          class="profile-card__report bg-purple-500 p-8 flex items-center gap-4"
+        >
           <img
-            class="profile-card__avatar"
+            class="profile-card__avatar w-16 h-16 rounded-full border-2 border-white"
             src="/images/image-jeremy.png"
             alt="Jeremy Robson Avatar"
           />
           <div class="profile-card__user-info">
-            <p class="profile-card__label">Report for</p>
-            <h2 class="profile-card__name">Jeremy Robson</h2>
+            <p class="profile-card__label text-xs text-gray-200">Report for</p>
+            <h2 class="profile-card__name text-2xl font-light text-white">
+              Jeremy Robson
+            </h2>
           </div>
         </section>
 
-        <nav class="profile-card__time-controls">
-          <ul class="time-controls__list">
+        <nav class="profile-card__time-controls p-6">
+          <ul class="time-controls__list flex justify-between">
             <li class="time-controls__item">
-              <button class="time-controls__button" data-period="daily">
+              <button
+                class="time-controls__button text-gray-400 hover:text-white transition-colors"
+                data-period="daily"
+              >
                 Daily
               </button>
             </li>
             <li class="time-controls__item">
               <button
-                class="time-controls__button time-controls__button--active"
+                class="time-controls__button time-controls__button--active text-gray-400 hover:text-white transition-colors"
                 data-period="weekly"
               >
                 Weekly
               </button>
             </li>
             <li class="time-controls__item">
-              <button class="time-controls__button" data-period="monthly">
+              <button
+                class="time-controls__button text-gray-400 hover:text-white transition-colors"
+                data-period="monthly"
+              >
                 Monthly
               </button>
             </li>

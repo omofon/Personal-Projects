@@ -9,12 +9,20 @@
   --exercise: hsl(145, 58%, 55%);
   --social: hsl(264, 64%, 52%);
   --selfcare: hsl(43, 84%, 65%);
-  
+
   /* Neutral */
   --navy-950: hsl(226, 43%, 10%);
   --navy-900: hsl(235, 46%, 20%);
   --purple-500: hsl(235, 45%, 61%);
   --navy-200: hsl(236, 100%, 87%);
+}
+
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
 }
 
 /* ==== FOOTER ==== */

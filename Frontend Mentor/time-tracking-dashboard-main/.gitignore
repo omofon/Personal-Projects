@@ -3,6 +3,8 @@
 *.fig
 *.xd
 
+*.txt
+
 # Dependencies
 /node_modules
 /.pnp

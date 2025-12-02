@@ -1,3 +1,5 @@
+@source "../index.html";
+
 /* Override Root Styles */
 :root {
   --default-font-family: "Rubik", sans-serif;
@@ -23,6 +25,58 @@ h3,
 p {
   padding: 0;
   margin: 0;
+}
+
+/* ==== Reusable Component Styles ==== */
+/* Activity Card Decorative Header */
+.activity-card__decorative-header {
+  @apply h-12 rounded-t-xl relative z-0 overflow-hidden;
+}
+
+.activity-card__decorative-header img {
+  @apply absolute right-5 -top-2 w-20;
+}
+
+/* Activity Card Content Box */
+.activity-card__content-box {
+  @apply bg-navy-900 p-6 rounded-xl hover:bg-opacity-75 transition-colors cursor-pointer relative z-10 -mt-3;
+}
+
+.activity-card__content-box {
+  @apply lg:p-7;
+}
+
+.activiy-card__heading {
+  @apply flex justify-between items-center mb-2;
+}
+
+.activity-card__time-data {
+  /* Mobile */
+  @apply flex justify-between items-center mb-2
+
+  /* Desktop */
+  @apply lg:flex-col lg:items-start lg:gap-2;
+}
+
+.activity-card__current-time {
+  /* Mobile */
+  @apply text-3xl font-light text-white
+
+  /* Desktop */
+  @apply lg:text-6xl;
+}
+
+.activity-card__previous-time {
+  @apply text-sm text-navy-200;
+}
+
+/* Time Control Buttons */
+.time-controls__button {
+  @apply text-navy-200 hover:text-white transition-colors cursor-pointer;
+}
+
+.time-controls__button--active {
+  @apply text-white;
 }
 
 /* ==== FOOTER ==== */

@@ -13,51 +13,53 @@
 
     <title>Frontend Mentor | Time tracking dashboard</title>
     <link rel="stylesheet" href="./styles/output.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
   </head>
-  <body class="bg-navy-950 min-h-screen pt-14 pb-10 px-6 font-sans text-white">
-    <main class="w-full max-w-sm mx-auto flex flex-col gap-6">
-      <!-- Profile Card for User: Jeremy Robson -->
-      <article class="profile-card bg-navy-900 rounded-xl overflow-hidden">
+  <body
+    class="bg-navy-950 min-h-screen pt-14 pb-10 px-6 font-sans text-navy-200"
+  >
+    <main
+      class="w-full max-w-sm mx-auto grid grid-cols-1 gap-6 lg:max-w-6xl lg:grid-cols-4 lg:grid-rows-2 lg:gap-8 lg:p-14"
+    >
+      <article
+        class="profile-card bg-navy-900 rounded-xl overflow-hidden lg:row-span-2"
+      >
         <section
-          class="profile-card__report bg-purple-500 p-8 flex items-center gap-4 rounded-xl"
+          class="profile-card__report bg-purple-500 p-8 flex items-center gap-4 rounded-xl lg:flex-col lg:items-start lg:h-3/4 lg:justify-start"
         >
           <img
-            class="profile-card__avatar w-16 h-16 rounded-full border-2 border-white"
-            src="/images/image-jeremy.png"
+            class="profile-card__avatar w-16 h-16 rounded-full border-2 border-white lg:w-20 lg:h-20"
+            src="./images/image-jeremy.png"
             alt="Jeremy Robson Avatar"
           />
-          <div class="profile-card__user-info">
-            <p class="profile-card__label text-xs text-gray-400">Report for</p>
-            <h2 class="profile-card__name text-2xl font-light text-gray-200">
+          <div class="profile-card__user-info lg:pt-8">
+            <p class="profile-card__label text-xs text-navy-200">Report for</p>
+            <h2
+              class="profile-card__name text-2xl font-light text-white lg:text-4xl"
+            >
               Jeremy Robson
             </h2>
           </div>
         </section>
 
-        <nav class="profile-card__time-controls p-6">
-          <ul class="time-controls__list flex justify-between">
+        <nav class="profile-card__time-controls p-6 lg:p-8">
+          <ul
+            class="time-controls__list flex justify-between lg:flex-col lg:gap-3"
+          >
             <li class="time-controls__item">
-              <button
-                class="time-controls__button text-gray-400 hover:text-white transition-colors cursor-pointer"
-                data-period="daily"
-              >
+              <button class="time-controls__button" data-period="daily">
                 Daily
               </button>
             </li>
             <li class="time-controls__item">
               <button
-                class="time-controls__button time-controls__button--active text-gray-400 hover:text-white transition-colors cursor-pointer"
+                class="time-controls__button time-controls__button--active"
                 data-period="weekly"
               >
                 Weekly
               </button>
             </li>
             <li class="time-controls__item">
-              <button
-                class="time-controls__button text-gray-400 hover:text-white transition-colors cursor-pointer"
-                data-period="monthly"
-              >
+              <button class="time-controls__button" data-period="monthly">
                 Monthly
               </button>
             </li>
@@ -65,29 +67,20 @@
         </nav>
       </article>
 
-      <!-- Activity Card: Work -->
       <article
-        class="activity-card activity-card--work rounded-xl overflow-hiddem relative"
+        class="activity-card bg-activity-work rounded-xl overflow-hidden relative"
       >
-        <div class="activity-card__decorative-header top-0 right-0 bg-work">
-          <img
-            src="/images/icon-work.svg"
-            alt="Briefcase icon"
-            class="mx-auto"
-          />
+        <div class="activity-card__decorative-header">
+          <img src="./images/icon-work.svg" alt="Briefcase icon" />
         </div>
 
-        <div
-          class="activity-card__content-box bg-navy-900 p-6 rounded-xl hover:bg-opacity-75 transition-colors cursor-pointer -mt-6 relative z-10"
-        >
-          <div
-            class="activity-card__heading flex justify-between items-center mb-2"
-          >
+        <div class="activity-card__content-box">
+          <div class="activity-card__heading">
             <h3 class="activity-card__title text-lg font-medium text-white">
               Work
             </h3>
             <button class="activity-card__menu-btn">
-              <img src="/images/icon-ellipsis.svg" alt="Options menu icon" />
+              <img src="./images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
 
@@ -98,107 +91,112 @@
         </div>
       </article>
 
-      <!-- Activity Card: Play -->
-      <article class="activity-card activity-card--play">
+      <article
+        class="activity-card bg-activity-play rounded-xl overflow-hidden relative"
+      >
         <div class="activity-card__decorative-header">
-          <img src="/images/icon-play.svg" alt="Briefcase icon" />
+          <img src="./images/icon-play.svg" alt="Game console icon" />
         </div>
-
         <div class="activity-card__content-box">
           <div class="activity-card__heading">
-            <h3 class="activity-card__title">Play</h3>
+            <h3 class="activity-card__title text-lg font-medium text-white">
+              Play
+            </h3>
             <button class="activity-card__menu-btn">
-              <img src="/images/icon-ellipsis.svg" alt="Game console icon" />
+              <img src="./images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
-
           <div class="activity-card__time-data">
-            <h1 class="activity-card__current-time">32hrs</h1>
-            <p class="activity-card__previous-time">Last Week - 36hrs</p>
+            <h1 class="activity-card__current-time">10hrs</h1>
+            <p class="activity-card__previous-time">Last Week - 8hrs</p>
           </div>
         </div>
       </article>
 
-      <!-- Activity Card: Study -->
-      <article class="activity-card activity-card--study">
+      <article
+        class="activity-card bg-activity-study rounded-xl overflow-hidden relative"
+      >
         <div class="activity-card__decorative-header">
-          <img src="/images/icon-study.svg" alt="Open book icon" />
+          <img src="./images/icon-study.svg" alt="Open book icon" />
         </div>
-
         <div class="activity-card__content-box">
           <div class="activity-card__heading">
-            <h3 class="activity-card__title">Study</h3>
+            <h3 class="activity-card__title text-lg font-medium text-white">
+              Study
+            </h3>
             <button class="activity-card__menu-btn">
-              <img src="/images/icon-ellipsis.svg" alt="Options menu icon" />
+              <img src="./images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
-
           <div class="activity-card__time-data">
-            <h1 class="activity-card__current-time">32hrs</h1>
-            <p class="activity-card__previous-time">Last Week - 36hrs</p>
+            <h1 class="activity-card__current-time">4hrs</h1>
+            <p class="activity-card__previous-time">Last Week - 7hrs</p>
           </div>
         </div>
       </article>
 
-      <!-- Activity Card: Exercise -->
-      <article class="activity-card activity-card--exercise">
+      <article
+        class="activity-card bg-activity-exercise rounded-xl overflow-hidden relative"
+      >
         <div class="activity-card__decorative-header">
-          <img src="/images/icon-exercise.svg" alt="Man running icon" />
+          <img src="./images/icon-exercise.svg" alt="Man running icon" />
         </div>
-
         <div class="activity-card__content-box">
           <div class="activity-card__heading">
-            <h3 class="activity-card__title">Exercise</h3>
+            <h3 class="activity-card__title text-lg font-medium text-white">
+              Exercise
+            </h3>
             <button class="activity-card__menu-btn">
-              <img src="/images/icon-ellipsis.svg" alt="Options menu icon" />
+              <img src="./images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
-
           <div class="activity-card__time-data">
-            <h1 class="activity-card__current-time">32hrs</h1>
-            <p class="activity-card__previous-time">Last Week - 36hrs</p>
+            <h1 class="activity-card__current-time">4hrs</h1>
+            <p class="activity-card__previous-time">Last Week - 5hrs</p>
           </div>
         </div>
       </article>
 
-      <!-- Activity Card: Social -->
-      <article class="activity-card activity-card--social">
+      <article
+        class="activity-card bg-activity-social rounded-xl overflow-hidden relative"
+      >
         <div class="activity-card__decorative-header">
-          <img src="/images/icon-social.svg" alt="Two chats icon" />
+          <img src="./images/icon-social.svg" alt="Two chats icon" />
         </div>
-
         <div class="activity-card__content-box">
           <div class="activity-card__heading">
-            <h3 class="activity-card__title">Social</h3>
+            <h3 class="activity-card__title text-lg font-medium text-white">
+              Social
+            </h3>
             <button class="activity-card__menu-btn">
-              <img src="/images/icon-ellipsis.svg" alt="Options menu icon" />
+              <img src="./images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
-
           <div class="activity-card__time-data">
-            <h1 class="activity-card__current-time">32hrs</h1>
-            <p class="activity-card__previous-time">Last Week - 36hrs</p>
+            <h1 class="activity-card__current-time">5hrs</h1>
+            <p class="activity-card__previous-time">Last Week - 10hrs</p>
           </div>
         </div>
       </article>
 
-      <!-- Activity Card: Self Care -->
-      <article class="activity-card activity-card--self-care">
+      <article
+        class="activity-card bg-activity-selfcare rounded-xl overflow-hidden relative"
+      >
         <div class="activity-card__decorative-header">
-          <img src="/images/icon-self-care.svg" alt="Love icon woth cross" />
+          <img src="./images/icon-self-care.svg" alt="Love icon woth cross" />
         </div>
-
         <div class="activity-card__content-box">
           <div class="activity-card__heading">
-            <h3 class="activity-card__title">Self Care</h3>
+            <h3 class="activity-card__title text-lg font-medium text-white">
+              Self Care
+            </h3>
             <button class="activity-card__menu-btn">
-              <img src="/images/icon-ellipsis.svg" alt="Options menu icon" />
+              <img src="./images/icon-ellipsis.svg" alt="Options menu icon" />
             </button>
           </div>
-
           <div class="activity-card__time-data">
-            <h1 class="activity-card__current-time">32hrs</h1>
-            <p class="activity-card__previous-time">Last Week - 36hrs</p>
+            <h1 class="activity-card__current-time">2hrs</h1>
+            <p class="activity-card__previous-time">Last Week - 2hrs</p>
           </div>
         </div>
       </article>

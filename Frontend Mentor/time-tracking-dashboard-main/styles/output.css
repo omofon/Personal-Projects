@@ -1,12 +1,13 @@
 /*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
-@import url("./index.css");
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-purple-500: oklch(62.7% 0.265 303.9);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-sm: 24rem;
@@ -17,20 +18,16 @@
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --text-xl: 1.25rem;
-    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-light: 300;
     --font-weight-medium: 500;
     --radius-xl: 0.75rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --default-font-family: var(--default-font-family), sans-serif;
+    --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
 }
@@ -45,9 +42,9 @@
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"), sans-serif;
-    font-feature-settings: normal;
-    font-variation-settings: normal;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
   }
   hr {
@@ -253,14 +250,8 @@
   .border-white {
     border-color: var(--color-white);
   }
-  .bg-navy-900 {
-    background-color: var(--navy-900);
-  }
-  .bg-navy-950 {
-    background-color: var(--navy-950);
-  }
   .bg-purple-500 {
-    background-color: var(--purple-500);
+    background-color: var(--color-purple-500);
   }
   .p-6 {
     padding: calc(var(--spacing) * 6);
@@ -281,7 +272,7 @@
     vertical-align: middle;
   }
   .font-sans {
-    font-family: var(--default-font-family), sans-serif;
+    font-family: var(--font-sans);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -302,9 +293,6 @@
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
-  }
-  .text-navy-200 {
-    color: var(--navy-200);
   }
   .text-white {
     color: var(--color-white);
@@ -402,6 +390,153 @@
       line-height: var(--tw-leading, var(--text-3xl--line-height));
     }
   }
+}
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+:root {
+  --default-font-family: "Rubik";
+  --work: hsl(15, 100%, 70%);
+  --play: hsl(195, 74%, 62%);
+  --study: hsl(348, 100%, 68%);
+  --exercise: hsl(145, 58%, 55%);
+  --social: hsl(264, 64%, 52%);
+  --selfcare: hsl(43, 84%, 65%);
+  --navy-950: hsl(226, 43%, 10%);
+  --navy-900: hsl(235, 46%, 20%);
+  --purple-500: hsl(235, 45%, 61%);
+  --navy-200: hsl(236, 100%, 87%);
+}
+@layer base {
+  h1, h2, h3, p {
+    padding: 0;
+    margin: 0;
+  }
+}
+@layer utilities {
+  .bg-navy-950 {
+    background-color: var(--navy-950);
+  }
+  .bg-navy-900 {
+    background-color: var(--navy-900);
+  }
+  .bg-purple-500 {
+    background-color: var(--purple-500);
+  }
+  .bg-activity-work {
+    background-color: var(--work);
+  }
+  .bg-activity-play {
+    background-color: var(--play);
+  }
+  .bg-activity-study {
+    background-color: var(--study);
+  }
+  .bg-activity-exercise {
+    background-color: var(--exercise);
+  }
+  .bg-activity-social {
+    background-color: var(--social);
+  }
+  .bg-activity-selfcare {
+    background-color: var(--selfcare);
+  }
+  .text-navy-200 {
+    color: var(--navy-200);
+  }
+  .hover\:bg-opacity-75:hover {
+    background-color: rgba(var(--navy-900), 0.75);
+  }
+}
+@layer components {
+  .activity-card__decorative-header {
+    position: relative;
+    z-index: 0;
+    height: calc(var(--spacing) * 12);
+    overflow: hidden;
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+  }
+  .activity-card__decorative-header img {
+    position: absolute;
+    top: calc(var(--spacing) * -2);
+    right: calc(var(--spacing) * 5);
+    width: calc(var(--spacing) * 20);
+  }
+  .activity-card__content-box {
+    position: relative;
+    z-index: 10;
+    margin-top: calc(var(--spacing) * -3);
+    cursor: pointer;
+    border-radius: var(--radius-xl);
+    padding: calc(var(--spacing) * 6);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    background-color: var(--navy-900);
+  }
+  .activity-card__content-box:hover {
+    opacity: 0.75;
+  }
+  @media (min-width: 1024px) {
+    .activity-card__content-box {
+      padding: 1.75rem;
+    }
+  }
+  .activity-card__heading {
+    margin-bottom: calc(var(--spacing) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .activity-card__time-data {
+    margin-bottom: calc(var(--spacing) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media (min-width: 1024px) {
+    .activity-card__time-data {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(var(--spacing) * 2);
+    }
+  }
+  .activity-card__current-time {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+    color: var(--color-white);
+  }
+  @media (min-width: 1024px) {
+    .activity-card__current-time {
+      font-size: 3.5rem;
+    }
+  }
+  .activity-card__previous-time {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    color: var(--navy-200);
+  }
+  .time-controls__button {
+    cursor: pointer;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    color: var(--navy-200);
+  }
+  .time-controls__button:hover {
+    color: white;
+  }
+  .time-controls__button--active {
+    color: white;
+  }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
 @property --tw-border-style {
   syntax: "*";

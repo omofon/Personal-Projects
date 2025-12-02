@@ -7,6 +7,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "tailwindcss -i ./styles/index.css -o ./styles/output.css",
+    "watch": "tailwindcss -i ./styles/index.css -o ./styles/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

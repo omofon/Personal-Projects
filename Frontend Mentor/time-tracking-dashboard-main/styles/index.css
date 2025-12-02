@@ -1,11 +1,13 @@
-/* @source "../index.html"; */
 @import "tailwindcss";
 
-/* Override Root Styles */
-: root {
-  --default-font-family: "Rubik", sans-serif;
+/* Import your font */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
 
-  /* Primary */
+/* Define Custom Properties */
+:root {
+  --default-font-family: "Rubik";
+
+  /* Primary Colors */
   --work: hsl(15, 100%, 70%);
   --play: hsl(195, 74%, 62%);
   --study: hsl(348, 100%, 68%);
@@ -13,7 +15,7 @@
   --social: hsl(264, 64%, 52%);
   --selfcare: hsl(43, 84%, 65%);
 
-  /* Neutral */
+  /* Neutral Colors */
   --navy-950: hsl(226, 43%, 10%);
   --navy-900: hsl(235, 46%, 20%);
   --purple-500: hsl(235, 45%, 61%);
@@ -30,7 +32,55 @@
   }
 }
 
-/* ==== Reusable Component Styles ==== */
+@layer utilities {
+  /* Background Colors */
+  .bg-navy-950 {
+    background-color: var(--navy-950);
+  }
+
+  .bg-navy-900 {
+    background-color: var(--navy-900);
+  }
+
+  .bg-purple-500 {
+    background-color: var(--purple-500);
+  }
+
+  .bg-activity-work {
+    background-color: var(--work);
+  }
+
+  .bg-activity-play {
+    background-color: var(--play);
+  }
+
+  .bg-activity-study {
+    background-color: var(--study);
+  }
+
+  .bg-activity-exercise {
+    background-color: var(--exercise);
+  }
+
+  .bg-activity-social {
+    background-color: var(--social);
+  }
+
+  .bg-activity-selfcare {
+    background-color: var(--selfcare);
+  }
+
+  /* Text Colors */
+  .text-navy-200 {
+    color: var(--navy-200);
+  }
+
+  /* Hover variants if needed */
+  .hover\:bg-opacity-75:hover {
+    background-color: rgba(var(--navy-900), 0.75);
+  }
+}
+
 @layer components {
   /* Activity Card Decorative Header */
   .activity-card__decorative-header {
@@ -43,52 +93,70 @@
 
   /* Activity Card Content Box */
   .activity-card__content-box {
-    @apply bg-navy-900 p-6 rounded-xl hover:bg-opacity-75 transition-colors cursor-pointer relative z-10 -mt-3;
+    @apply p-6 rounded-xl transition-colors cursor-pointer relative z-10 -mt-3;
+    background-color: var(--navy-900);
   }
 
-  .activity-card__content-box {
-    @apply lg:p-7;
+  .activity-card__content-box:hover {
+    opacity: 0.75;
   }
 
-  .activiy-card__heading {
+  @media (min-width: 1024px) {
+    .activity-card__content-box {
+      padding: 1.75rem;
+    }
+  }
+
+  .activity-card__heading {
     @apply flex justify-between items-center mb-2;
   }
 
   .activity-card__time-data {
-    /* Mobile */
-    @apply flex justify-between items-center mb-2
+    @apply flex justify-between items-center mb-2;
+  }
 
-  /* Desktop */
-  @apply lg:flex-col lg:items-start lg:gap-2;
+  @media (min-width: 1024px) {
+    .activity-card__time-data {
+      @apply flex-col items-start gap-2;
+    }
   }
 
   .activity-card__current-time {
-    /* Mobile */
-    @apply text-3xl font-light text-white
+    @apply text-3xl font-light text-white;
+  }
 
-  /* Desktop */
-  @apply lg:text-6xl;
+  @media (min-width: 1024px) {
+    .activity-card__current-time {
+      font-size: 3.5rem;
+    }
   }
 
   .activity-card__previous-time {
-    @apply text-sm text-navy-200;
+    @apply text-sm;
+    color: var(--navy-200);
   }
 
   /* Time Control Buttons */
   .time-controls__button {
-    @apply text-navy-200 hover:text-white transition-colors cursor-pointer;
+    @apply transition-colors cursor-pointer;
+    color: var(--navy-200);
+  }
+
+  .time-controls__button:hover {
+    color: white;
   }
 
   .time-controls__button--active {
-    @apply text-white;
+    color: white;
   }
 }
 
-/* ==== FOOTER ==== */
+/* Footer */
 .attribution {
   font-size: 11px;
   text-align: center;
 }
+
 .attribution a {
   color: hsl(228, 45%, 44%);
 }

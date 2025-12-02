@@ -3,6 +3,7 @@
 *.fig
 *.xd
 
+# Text files
 *.txt
 
 # Dependencies

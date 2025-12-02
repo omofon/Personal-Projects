@@ -13,6 +13,7 @@
 
     <title>Frontend Mentor | Time tracking dashboard</title>
     <link rel="stylesheet" href="./styles/output.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
   </head>
   <body
     class="bg-navy-950 min-h-screen pt-14 pb-10 px-6 font-sans text-navy-200"
@@ -20,33 +21,38 @@
     <main
       class="w-full max-w-sm mx-auto grid grid-cols-1 gap-6 lg:max-w-6xl lg:grid-cols-4 lg:grid-rows-2 lg:gap-8 lg:p-14"
     >
+      <!-- User Profile -->
       <article
         class="profile-card bg-navy-900 rounded-xl overflow-hidden lg:row-span-2"
       >
+        <!-- Profile Card -->
         <section
-          class="profile-card__report bg-purple-500 p-8 flex items-center gap-4 rounded-xl lg:flex-col lg:items-start lg:h-3/4 lg:justify-start"
+          class="profile-card__report bg-purple-500 p-8 flex items-center gap-4 rounded-xl lg:flex-col lg:items-start lg:h-2.75/4 lg:justify-start"
         >
           <img
             class="profile-card__avatar w-16 h-16 rounded-full border-2 border-white lg:w-20 lg:h-20"
             src="./images/image-jeremy.png"
             alt="Jeremy Robson Avatar"
           />
-          <div class="profile-card__user-info lg:pt-8">
+          <div class="profile-card__user-info lg:pt-6">
             <p class="profile-card__label text-xs text-navy-200">Report for</p>
             <h2
-              class="profile-card__name text-2xl font-light text-white lg:text-4xl"
+              class="profile-card__name text-2xl font-light text-white lg:text-3xl"
             >
               Jeremy Robson
             </h2>
           </div>
         </section>
 
-        <nav class="profile-card__time-controls p-6 lg:p-8">
+        <nav class="profile-card__time-controls p-6">
           <ul
-            class="time-controls__list flex justify-between lg:flex-col lg:gap-3"
+            class="time-controls__list flex justify-between align-middle lg:flex-col lg:gap-4"
           >
             <li class="time-controls__item">
-              <button class="time-controls__button" data-period="daily">
+              <button
+                class="time-controls__button text-navy-200 hover:text-white transition-colors cursor-pointer"
+                data-period="daily"
+              >
                 Daily
               </button>
             </li>
@@ -68,7 +74,7 @@
       </article>
 
       <article
-        class="activity-card bg-activity-work rounded-xl overflow-hidden relative"
+        class="activity-card activity-card--work bg-activity-work rounded-xl overflow-hidden relative"
       >
         <div class="activity-card__decorative-header">
           <img src="./images/icon-work.svg" alt="Briefcase icon" />
@@ -92,7 +98,7 @@
       </article>
 
       <article
-        class="activity-card bg-activity-play rounded-xl overflow-hidden relative"
+        class="activity-card activity-card--play bg-activity-play rounded-xl overflow-hidden relative"
       >
         <div class="activity-card__decorative-header">
           <img src="./images/icon-play.svg" alt="Game console icon" />
@@ -114,7 +120,7 @@
       </article>
 
       <article
-        class="activity-card bg-activity-study rounded-xl overflow-hidden relative"
+        class="activity-card activity-card--study bg-activity-study rounded-xl overflow-hidden relative"
       >
         <div class="activity-card__decorative-header">
           <img src="./images/icon-study.svg" alt="Open book icon" />
@@ -136,7 +142,7 @@
       </article>
 
       <article
-        class="activity-card bg-activity-exercise rounded-xl overflow-hidden relative"
+        class="activity-card activity-card--exercise bg-activity-exercise rounded-xl overflow-hidden relative"
       >
         <div class="activity-card__decorative-header">
           <img src="./images/icon-exercise.svg" alt="Man running icon" />
@@ -158,7 +164,7 @@
       </article>
 
       <article
-        class="activity-card bg-activity-social rounded-xl overflow-hidden relative"
+        class="activity-card activity-card--social bg-activity-social rounded-xl overflow-hidden relative"
       >
         <div class="activity-card__decorative-header">
           <img src="./images/icon-social.svg" alt="Two chats icon" />
@@ -180,7 +186,7 @@
       </article>
 
       <article
-        class="activity-card bg-activity-selfcare rounded-xl overflow-hidden relative"
+        class="activity-card activity-card--self-care bg-activity-selfcare rounded-xl overflow-hidden relative"
       >
         <div class="activity-card__decorative-header">
           <img src="./images/icon-self-care.svg" alt="Love icon woth cross" />

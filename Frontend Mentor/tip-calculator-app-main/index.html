@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -13,37 +11,22 @@
     />
 
     <title>Frontend Mentor | Tip calculator app</title>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- HEADER -->
     <header class="logo-header">
       <img src="images/logo.svg" alt="Splitter Logo" />
     </header>
 
-    <!-- MAIN -->
     <main>
-      <!-- Tip Calculator Card -->
       <section class="splitter-card">
-        <!-- Left Section of Card -->
         <div class="input-panel">
           <form class="splitter-form" id="splitter-form">
-            <!-- Bill Field -->
             <div class="input-group">
               <div class="label-row">
                 <label for="bill-amount">Bill</label>
-                <span id="bill-error"></span>
+                <span class="error-message" id="bill-error"></span>
               </div>
               <div class="input-field">
                 <img src="images/icon-dollar.svg" alt="Dollar Sign" />
@@ -58,15 +41,13 @@
               </div>
             </div>
 
-            <!-- Select Tip Field -->
             <div class="tip-selection-group">
               <div class="label-row">
-                <label for="tip-percent">Select Tip %</label>
+                <label>Select Tip %</label>
                 <span class="error-message" id="tip-error"></span>
               </div>
 
               <div class="tip-grid">
-                <!-- Button: 5% -->
                 <input
                   type="radio"
                   name="tip-percent"
@@ -76,7 +57,6 @@
                 />
                 <label for="tip-5" class="tip-button">5%</label>
 
-                <!-- Button: 10% -->
                 <input
                   type="radio"
                   name="tip-percent"
@@ -86,7 +66,6 @@
                 />
                 <label for="tip-10" class="tip-button">10%</label>
 
-                <!-- Button: 15% -->
                 <input
                   type="radio"
                   name="tip-percent"
@@ -96,7 +75,6 @@
                 />
                 <label for="tip-15" class="tip-button">15%</label>
 
-                <!-- Button: 25% -->
                 <input
                   type="radio"
                   name="tip-percent"
@@ -106,7 +84,6 @@
                 />
                 <label for="tip-25" class="tip-button">25%</label>
 
-                <!-- Button: 50% -->
                 <input
                   type="radio"
                   name="tip-percent"
@@ -116,32 +93,29 @@
                 />
                 <label for="tip-50" class="tip-button">50%</label>
 
-                <!-- Button: Custom -->
                 <input
                   type="radio"
                   name="tip-percent"
-                  id="tip-custom"
+                  id="tip-custom-radio"
                   value="custom"
                   class="tip-radio-input"
+                  aria-label="Custom Tip Percentage"
                 />
-                <label for="tip-custom" class="tip-button">
-                  <input
-                    type="number"
-                    id="custom-amount"
-                    placeholder="Custom"
-                    class="custom-input"
-                    min="1"
-                    step="1"
-                  />
-                </label>
+                <input
+                  type="number"
+                  id="custom-amount"
+                  placeholder="Custom"
+                  class="custom-input"
+                  min="1"
+                  step="1"
+                />
               </div>
             </div>
 
-            <!-- People Field -->
             <div class="input-group">
               <div class="label-row">
                 <label for="num-people">Number of People</label>
-                <span id="people-error"></span>
+                <span class="error-message" id="people-error"></span>
               </div>
 
               <div class="input-field">
@@ -151,6 +125,7 @@
                   name="num-people"
                   id="num-people"
                   min="1"
+                  step="1"
                   placeholder="0"
                 />
               </div>
@@ -158,35 +133,32 @@
           </form>
         </div>
 
-        <!-- Right Section of Card -->
         <div class="output-panel">
-          <!-- Tip Amount -->
-          <div class="result-line">
-            <div class="amount-label">
-              <p class="result-label">Tip Amount</p>
-              <p class="result-subtext">/ person</p>
+          <div class="results-container">
+            <div class="result-line">
+              <div class="amount-label">
+                <p class="result-label">Tip Amount</p>
+                <p class="result-subtext">/ person</p>
+              </div>
+              <h2 class="result-value" id="tip-per-person">$0.00</h2>
             </div>
-            <h2 class="result-value" id="tip-per-person">$0.00</h2>
+
+            <div class="result-line">
+              <div class="amount-label">
+                <p class="result-label">Total</p>
+                <p class="result-subtext">/ person</p>
+              </div>
+              <h2 class="result-value" id="total-per-person">$0.00</h2>
+            </div>
           </div>
 
-          <!-- Total Amount -->
-          <div class="result-line">
-            <div class="amount-label">
-              <p class="result-label">Total</p>
-              <p class="result-subtext">/ person</p>
-            </div>
-            <h2 class="result-value" id="total-per-person">$0.00</h2>
-          </div>
+          <button type="button" class="reset-button" id="reset-button">
+            RESET
+          </button>
         </div>
-
-        <!-- Reset Button -->
-        <button type="button" class="reset-button" id="reset-button">
-          RESET
-        </button>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
@@ -194,7 +166,6 @@
       >. Coded by <a href="https://github.com/omofon">Omofon</a>.
     </footer>
 
-    <!-- SCRIPT -->
     <script src="index.js"></script>
   </body>
 </html>

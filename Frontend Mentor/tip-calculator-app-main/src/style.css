@@ -51,15 +51,6 @@
     @apply focus:outline-none focus:ring-2 focus:ring-primary;
   }
 
-  .tip-custom-input {
-    @apply w-full px-3 py-3 mt-3 border-2 border-primary-dark rounded-lg text-base transition-all;
-    @apply focus:outline-none focus:border-primary;
-  }
-
-  .error-message {
-    @apply hidden text-red-500 text-sm mt-2 font-medium;
-  }
-
   .result-line {
     @apply flex justify-between items-center;
   }
@@ -75,9 +66,36 @@
   .result-value {
     @apply text-3xl text-primary tracking-wide;
   }
-  
-  button {
-    @apply w-max rounded-md text-center;
+
+  /* Error Message Styles */
+  .error-message {
+    @apply text-red-500 text-sm font-bold;
+    display: none; /* Hidden by default */
+  }
+
+  .error-message.visible {
+    display: block; /* Shows when .visible class is added */
+  }
+
+  /* Tip Button Styles */
+  .tip-button {
+    @apply px-6 py-3 rounded-md font-bold text-xl text-white bg-primary-dark;
+    @apply hover:bg-primary hover:text-primary-dark;
+    @apply transition-colors duration-200 cursor-pointer;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Active state for selected tip button */
+  .tip-button.active {
+    @apply bg-primary text-primary-dark;
+  }
+
+  /* Custom input styling */
+  .custom-input {
+    @apply px-6 py-3 rounded-md font-bold text-xl text-primary-dark bg-neutral-50;
+    @apply text-right placeholder:text-center placeholder:text-neutral-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply transition-all duration-200;
   }
 }
 

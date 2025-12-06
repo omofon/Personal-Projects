@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const billError = document.getElementById("bill-error");
 
   // Tip Elements
-  const tipRadioInputs = document.querySelectorAll('input[name="tip-percent"]');
-  const customRadio = document.getElementById("tip-custom-radio");
+  const tipButtons = document.querySelectorAll(".tip-button");
   const customInput = document.getElementById("custom-amount");
   const tipError = document.getElementById("tip-error");
 
@@ -21,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Reset Button
   const resetButton = document.getElementById("reset-button");
 
+  // --- State Management ---
+  let selectedTipPercent = null;
+
   // --- Helper Functions --- //
 
   function showError(element, message) {
@@ -32,11 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     element.textContent = "";
     element.classList.remove("visible");
   }
-
-  /**
-   * Validates input fields and returns the parsed value or null on error.
-   * Clears or sets the error display.
-   */
 
   // Checks if Bill input is Valid
   function validateBill(value) {
@@ -63,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return null;
     }
 
-    const people = parseInt(value);
+    const people = parseInt(value, 10);
 
     // Checks for NaN or non-positive number
     if (isNaN(people) || people < 1) {
@@ -82,18 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Gets the selected tip percentage value
   function getTipPercent() {
-    const checkedRadio = document.querySelector(
-      'input[name="tip-percent"]:checked'
-    );
-
-    if (!checkedRadio) {
+    if (selectedTipPercent === null) {
       showError(tipError, "Select a tip");
       return null;
     }
 
-    clearError(tipError);
-
-    if (checkedRadio.value === "custom") {
+    // Validate custom input if that's what's selected
+    if (selectedTipPercent === "custom") {
       const value = customInput.value.trim();
       const customTip = parseFloat(value);
 
@@ -106,10 +98,24 @@ document.addEventListener("DOMContentLoaded", () => {
         showError(tipError, "1 - 100%");
         return null;
       }
+
+      clearError(tipError);
       return customTip;
     }
 
-    return parseFloat(checkedRadio.value);
+    clearError(tipError);
+    return selectedTipPercent;
+  }
+
+  // Clears active state from all tip buttons
+  function clearTipSelection() {
+    tipButtons.forEach((btn) => btn.classList.remove("active"));
+  }
+
+  // Sets a tip button as active
+  function setActiveTipButton(button) {
+    clearTipSelection();
+    button.classList.add("active");
   }
 
   // Renders tip/person and total/person
@@ -127,9 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 3. Calculation (tipPercent is already validated to be a number)
-    // Convert tip percentage to a decimal (e.g., 15 -> 0.15)
     const tipFactor = tipPercent / 100;
-
     const tipAmount = bill * tipFactor;
     const totalAmount = bill + tipAmount;
 
@@ -143,8 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function for reset button
   function resetForm() {
-    document.getElementById("splitter-form").reset();
+    // Clear inputs
+    billInput.value = "";
+    peopleInput.value = "";
     customInput.value = "";
+
+    // Clear tip selection state
+    selectedTipPercent = null;
+    clearTipSelection();
 
     // Clear outputs
     tipPerPerson.textContent = "$0.00";
@@ -162,25 +172,42 @@ document.addEventListener("DOMContentLoaded", () => {
   billInput.addEventListener("input", calculateTip);
   peopleInput.addEventListener("input", calculateTip);
 
-  // Listener for Custom Input: Checks the custom radio button and calculates
-  customInput.addEventListener("input", () => {
-    if (customInput.value.trim() !== "") {
-      customRadio.checked = true;
-    }
-    calculateTip();
-  });
+  // Tip Button Click Handlers
+  tipButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Set the selected tip from data attribute
+      selectedTipPercent = parseFloat(button.dataset.tip);
 
-  // Listener for all Tip Radio Buttons (Consolidated)
-  tipRadioInputs.forEach((radio) => {
-    radio.addEventListener("change", () => {
-      if (radio !== customRadio) {
-        customInput.value = "";
-      }
+      // Update visual state
+      setActiveTipButton(button);
+
+      // Clear custom input
+      customInput.value = "";
+
+      // Recalculate
       calculateTip();
     });
   });
 
-  // Listener for Reset Button (Fix: passing the function reference)
+  // Custom Input Handler
+  customInput.addEventListener("input", () => {
+    if (customInput.value.trim() !== "") {
+      // Mark that custom is selected
+      selectedTipPercent = "custom";
+
+      // Clear button selection
+      clearTipSelection();
+
+      // Recalculate
+      calculateTip();
+    } else {
+      // If custom input is cleared, reset tip selection
+      selectedTipPercent = null;
+      calculateTip();
+    }
+  });
+
+  // Reset Button Listener
   resetButton.addEventListener("click", resetForm);
 
   // Initial calculation check (useful if inputs retain values on refresh)

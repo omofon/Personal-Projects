@@ -2,20 +2,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
-:root {
+@theme {
+  /* Colors - Tailwind v4 auto-generates utilities from these */
+  --color-primary: hsl(172, 67%, 45%);
+  --color-primary-dark: hsl(183, 100%, 15%);
+
+  --color-neutral-500: hsl(186, 14%, 43%);
+  --color-neutral-400: hsl(184, 14%, 56%);
+  --color-neutral-200: hsl(185, 41%, 84%);
+  --color-neutral-50: hsl(189, 47%, 97%);
+
   /* Font Family */
-  --default-font-family: "Space Mono", monospace;
-
-  /* Primary Color */
-  --green-400: hsl(172, 67%, 45%);
-
-  /* Neutral Colors */
-  --green-900: hsl(183, 100%, 15%);
-  --grey-500: hsl(186, 14%, 43%);
-  --grey-400: hsl(184, 14%, 56%);
-  --grey-200: hsl(185, 41%, 84%);
-  --grey-50: hsl(189, 47%, 97%);
-  --white: hsl(0, 100%, 100%);
+  --font-family-space: "Space Mono", monospace;
 }
 
 @layer base {
@@ -25,95 +23,68 @@
     padding: 0;
     margin: 0;
   }
-}
 
-@layer utilities {
-  /* Background Color Utilities */
-  .bg-green-400 {
-    background-color: var(--green-400);
-  }
-
-  .bg-green-900 {
-    background-color: var(--green-900);
-  }
-
-  .bg-grey-500 {
-    background-color: var(--grey-500);
-  }
-
-  .bg-grey-400 {
-    background-color: var(--grey-400);
-  }
-
-  .bg-grey-200 {
-    background-color: var(--grey-200);
-  }
-
-  .bg-grey-50 {
-    background-color: var(--grey-50);
-  }
-
-  .bg-white {
-    background-color: var(--white);
-  }
-
-  /* Text Color Utilities */
-  .text-green-400 {
-    color: var(--green-400);
-  }
-
-  .text-green-900 {
-    color: var(--green-900);
-  }
-
-  .text-grey-500 {
-    color: var(--grey-500);
-  }
-
-  .text-grey-400 {
-    color: var(--grey-400);
-  }
-
-  .text-grey-200 {
-    color: var(--grey-200);
-  }
-
-  .text-grey-50 {
-    color: var(--grey-50);
-  }
-
-  .text-white {
-    color: var(--white);
+  body {
+    font-family: var(--font-family-space);
   }
 }
 
-.tip-custom-input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.75rem;
-  border: 2px solid #0d4d4d;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.2s;
-}
+@layer components {
+  label {
+    @apply text-neutral-500 text-sm mb-1;
+  }
 
-.tip-custom-input:focus {
-  outline: none;
-  border-color: #9dd9d9;
-}
+  .input-group {
+    @apply space-y-2;
+  }
 
-.tip-error {
-  display: none;
-  color: #e74c3c;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-  font-weight: 500;
+  .input-field {
+    @apply relative flex items-center;
+  }
+
+  .input-img {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 z-10 w-3;
+  }
+
+  input {
+    @apply w-full text-2xl text-right text-primary-dark font-bold bg-neutral-50 rounded-sm px-4 py-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .tip-custom-input {
+    @apply w-full px-3 py-3 mt-3 border-2 border-primary-dark rounded-lg text-base transition-all;
+    @apply focus:outline-none focus:border-primary;
+  }
+
+  .error-message {
+    @apply hidden text-red-500 text-sm mt-2 font-medium;
+  }
+
+  .result-line {
+    @apply flex justify-between items-center;
+  }
+
+  .result-label {
+    @apply text-base text-white font-medium;
+  }
+
+  .result-subtext {
+    @apply text-sm text-neutral-500;
+  }
+
+  .result-value {
+    @apply text-3xl text-primary tracking-wide;
+  }
+  
+  button {
+    @apply w-max rounded-md text-center;
+  }
 }
 
 .attribution {
-  font-size: 11px;
-  text-align: center;
+  @apply text-sm text-center;
 }
+
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  @apply text-blue-600;
 }

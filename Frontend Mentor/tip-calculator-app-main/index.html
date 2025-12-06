@@ -15,7 +15,7 @@
   </head>
 
   <body
-    class="flex flex-col items-center bg-grey-50 min-h-screen pt-10 pb-10 space-y-10"
+    class="flex flex-col items-center bg-neutral-200 min-h-screen pt-10 pb-10 space-y-10"
   >
     <header class="logo-header mb-10">
       <img src="images/logo.svg" alt="Splitter Logo" />
@@ -31,7 +31,11 @@
                 <span class="error-message" id="bill-error"></span>
               </div>
               <div class="input-field">
-                <img src="images/icon-dollar.svg" alt="Dollar Sign" />
+                <img
+                  src="images/icon-dollar.svg"
+                  class="input-img"
+                  alt="Dollar Sign"
+                />
                 <input
                   type="number"
                   name="bill-amount"
@@ -121,7 +125,11 @@
               </div>
 
               <div class="input-field">
-                <img src="images/icon-person.svg" alt="Person Avatar" />
+                <img
+                  src="images/icon-person.svg"
+                  class="input-img"
+                  alt="Person Avatar"
+                />
                 <input
                   type="number"
                   name="num-people"
@@ -135,8 +143,10 @@
           </form>
         </div>
 
-        <div class="output-panel">
-          <div class="results-container">
+        <div
+          class="output-panel bg-primary-dark rounded-xl px-6 py-8 space-y-6"
+        >
+          <div class="results-container space-y-4">
             <div class="result-line">
               <div class="amount-label">
                 <p class="result-label">Tip Amount</p>

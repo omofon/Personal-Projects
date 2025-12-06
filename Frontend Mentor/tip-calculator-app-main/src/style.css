@@ -5,6 +5,7 @@
 :root {
   /* Font Family */
   --default-font-family: "Space Mono", monospace;
+
   /* Primary Color */
   --green-400: hsl(172, 67%, 45%);
 
@@ -15,6 +16,75 @@
   --grey-200: hsl(185, 41%, 84%);
   --grey-50: hsl(189, 47%, 97%);
   --white: hsl(0, 100%, 100%);
+}
+
+@layer base {
+  h1,
+  h2,
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  /* Background Color Utilities */
+  .bg-green-400 {
+    background-color: var(--green-400);
+  }
+
+  .bg-green-900 {
+    background-color: var(--green-900);
+  }
+
+  .bg-grey-500 {
+    background-color: var(--grey-500);
+  }
+
+  .bg-grey-400 {
+    background-color: var(--grey-400);
+  }
+
+  .bg-grey-200 {
+    background-color: var(--grey-200);
+  }
+
+  .bg-grey-50 {
+    background-color: var(--grey-50);
+  }
+
+  .bg-white {
+    background-color: var(--white);
+  }
+
+  /* Text Color Utilities */
+  .text-green-400 {
+    color: var(--green-400);
+  }
+
+  .text-green-900 {
+    color: var(--green-900);
+  }
+
+  .text-grey-500 {
+    color: var(--grey-500);
+  }
+
+  .text-grey-400 {
+    color: var(--grey-400);
+  }
+
+  .text-grey-200 {
+    color: var(--grey-200);
+  }
+
+  .text-grey-50 {
+    color: var(--grey-50);
+  }
+
+  .text-white {
+    color: var(--white);
+  }
 }
 
 .tip-custom-input {

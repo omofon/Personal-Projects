@@ -30,25 +30,66 @@
 }
 
 @layer components {
+  /* Label for form inputs */
   label {
-    @apply text-neutral-500 text-sm mb-1;
+    @apply text-neutral-500 text-base font-bold mb-1;
   }
 
+  /* Form input group styling */
   .input-group {
     @apply space-y-2;
   }
 
+  /* Input with image container styling */
   .input-field {
     @apply relative flex items-center;
   }
 
+  /* Input box image styling */
   .input-img {
     @apply absolute left-4 top-1/2 -translate-y-1/2 z-10 w-3;
   }
 
+  /* Input element styling */
   input {
     @apply w-full text-2xl text-right text-primary-dark font-bold bg-neutral-50 rounded-sm px-4 py-2;
     @apply focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  /* Label with error message container styling */
+  .label-row {
+    @apply flex justify-between;
+  }
+
+  /* Error Message Styles */
+  .error-message {
+    @apply text-red-500 text-sm font-bold;
+    display: none;
+  }
+
+  .error-message.visible {
+    display: block;
+  }
+
+  /* Tip Button Styles */
+  .tip-button {
+    @apply px-6 py-3 rounded-md font-bold text-2xl text-white bg-primary-dark;
+    @apply hover:bg-primary hover:text-primary-dark;
+    @apply transition-colors duration-200 cursor-pointer;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Active state for selected tip button */
+  .tip-button.active {
+    @apply bg-primary text-primary-dark;
+  }
+
+  /* Custom input styling */
+  .custom-input {
+    @apply px-6 py-3 rounded-md font-bold text-2xl text-primary-dark bg-neutral-50;
+    @apply text-right placeholder:text-right placeholder:text-neutral-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply transition-all duration-200;
   }
 
   .result-line {
@@ -65,37 +106,6 @@
 
   .result-value {
     @apply text-3xl text-primary tracking-wide;
-  }
-
-  /* Error Message Styles */
-  .error-message {
-    @apply text-red-500 text-sm font-bold;
-    display: none; /* Hidden by default */
-  }
-
-  .error-message.visible {
-    display: block; /* Shows when .visible class is added */
-  }
-
-  /* Tip Button Styles */
-  .tip-button {
-    @apply px-6 py-3 rounded-md font-bold text-xl text-white bg-primary-dark;
-    @apply hover:bg-primary hover:text-primary-dark;
-    @apply transition-colors duration-200 cursor-pointer;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
-  }
-
-  /* Active state for selected tip button */
-  .tip-button.active {
-    @apply bg-primary text-primary-dark;
-  }
-
-  /* Custom input styling */
-  .custom-input {
-    @apply px-6 py-3 rounded-md font-bold text-xl text-primary-dark bg-neutral-50;
-    @apply text-right placeholder:text-center placeholder:text-neutral-400;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary;
-    @apply transition-all duration-200;
   }
 }
 

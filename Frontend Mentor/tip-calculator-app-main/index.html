@@ -21,10 +21,13 @@
       <img src="images/logo.svg" alt="Splitter Logo" />
     </header>
 
-    <main class="bg-white rounded-t-3xl p-6 flex-col space-y-8 max-w-lg">
-      <section class="splitter-card">
+    <main class="bg-white rounded-t-3xl p-6 flex-col max-w-lg">
+      <section class="splitter-card space-y-8">
+        <!-- Input Panel -->
         <div class="input-panel">
-          <form class="splitter-form" id="splitter-form">
+          <!-- Solitter Form -->
+          <form class="splitter-form space-y-6" id="splitter-form">
+            <!-- Bill Field -->
             <div class="input-group">
               <div class="label-row">
                 <label for="bill-amount">Bill</label>
@@ -48,13 +51,14 @@
               </div>
             </div>
 
+            <!-- Select Tip Field -->
             <div class="tip-selection-group">
               <div class="label-row">
                 <label>Select Tip %</label>
                 <span class="error-message" id="tip-error"></span>
               </div>
 
-              <div class="tip-grid grid-cols-2 gap-2">
+              <div class="tip-grid grid grid-cols-2 gap-4">
                 <button type="button" class="tip-button" data-tip="5">
                   5%
                 </button>
@@ -81,6 +85,7 @@
               </div>
             </div>
 
+            <!-- Number of People Field -->
             <div class="input-group">
               <div class="label-row">
                 <label for="num-people">Number of People</label>
@@ -107,8 +112,9 @@
           </form>
         </div>
 
+        <!-- Output Panel -->
         <div
-          class="output-panel bg-primary-dark rounded-xl px-6 py-8 space-y-6"
+          class="output-panel bg-primary-dark rounded-2xl px-6 py-8 space-y-6"
         >
           <div class="results-container space-y-4">
             <div class="result-line">

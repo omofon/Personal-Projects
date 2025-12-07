@@ -67,14 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function validateBill(value) {
     if (!billTouched) return null;
 
-    if (value === "") {
-      showError(billError, "Can't be empty");
-      return null;
-    }
-
     const bill = parseFloat(value);
+
     if (isNaN(bill) || bill <= 0) {
-      showError(billError, "Must be > zero");
+      if (value.trim() === "") {
+        showError(billError, "Can't be empty");
+      } else if (bill <= 0) {
+        showError(billError, "Must be > zero");
+      } else {
+        showError(billError, "Invalid number");
+      }
       return null;
     }
 
@@ -85,15 +87,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function validatePeople(value) {
     if (!peopleTouched) return null;
 
-    if (value === "") {
+    const people = parseInt(value, 10);
+
+    if (value.trim() === "") {
       showError(peopleError, "Can't be empty");
       return null;
     }
 
-    const people = parseInt(value, 10);
-
-    if (isNaN(people) || people < 1) {
-      showError(peopleError, "Must be at least 1");
+    if (isNaN(people) || people <= 0) {
+      if (people === 0) {
+        showError(peopleError, "Can't be zero");
+      } else {
+        showError(peopleError, "Must be > zero");
+      }
       return null;
     }
 

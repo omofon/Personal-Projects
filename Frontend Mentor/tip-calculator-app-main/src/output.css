@@ -490,6 +490,7 @@
     }
   }
   .reset-button.disabled {
+    pointer-events: none;
     &:disabled {
       cursor: not-allowed;
     }

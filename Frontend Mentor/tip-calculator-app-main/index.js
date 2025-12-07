@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Element Selections ---
+  // --- Element Selections --- //
   const billInput = document.getElementById("bill-amount");
   const billError = document.getElementById("bill-error");
 
@@ -15,13 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const resetButton = document.getElementById("reset-button");
 
-  // --- State Flags ---
+  // --- State Flags --- //
   let selectedTipPercent = null;
   let billTouched = false;
   let peopleTouched = false;
   let tipTouched = false;
 
-  // --- Helpers ---
+  // --- Helpers --- //
+
   function showError(element, message) {
     element.textContent = message;
     element.classList.add("visible");
@@ -32,7 +33,37 @@ document.addEventListener("DOMContentLoaded", () => {
     element.classList.remove("visible");
   }
 
-  // --- Validation Functions ---
+  function disableResetButton() {
+    resetButton.classList.add("disabled");
+    resetButton.disabled = true;
+  }
+
+  function enableResetButton() {
+    resetButton.classList.remove("disabled");
+    resetButton.disabled = false;
+  }
+
+  // Disables reset button on load
+  disableResetButton();
+
+  // Checks if any field isn't empty, then enables reset else disable
+  function checkResetButtonState() {
+    const billEmpty = billInput.value.trim() === "";
+    const peopleEmpty = peopleInput.value.trim() === "";
+    const customEmpty = customInput.value.trim() === "";
+    const tipActive = document.querySelector(".tip-button.active");
+
+    const shouldBeEnabled =
+      !billEmpty || !peopleEmpty || !customEmpty || tipActive;
+
+    if (shouldBeEnabled) {
+      enableResetButton();
+    } else {
+      disableResetButton();
+    }
+  }
+
+  // --- Validation Functions --- //
   function validateBill(value) {
     if (!billTouched) return null;
 
@@ -105,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return selectedTipPercent;
   }
 
-  // --- Tip Selection ---
+  // --- Tip Selection --- //
   function clearTipSelection() {
     tipButtons.forEach((btn) => btn.classList.remove("active"));
   }
@@ -115,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.classList.add("active");
   }
 
-  // --- Calculation ---
+  // --- Calculation --- //
   function calculateTip() {
     const bill = validateBill(billInput.value.trim());
     const people = validatePeople(peopleInput.value.trim());
@@ -134,17 +165,19 @@ document.addEventListener("DOMContentLoaded", () => {
     totalPerPerson.textContent = "$" + totalAmount.toFixed(2);
   }
 
-  // --- Event Listeners ---
+  // --- Event Listeners --- //
   billInput.addEventListener("input", () => {
     billTouched = true;
     validateBill(billInput.value.trim());
     calculateTip();
+    checkResetButtonState();
   });
 
   peopleInput.addEventListener("input", () => {
     peopleTouched = true;
     validatePeople(peopleInput.value.trim());
     calculateTip();
+    checkResetButtonState();
   });
 
   tipButtons.forEach((button) => {
@@ -156,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       customInput.value = "";
 
       calculateTip();
+      checkResetButtonState();
     });
   });
 
@@ -170,18 +204,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     calculateTip();
+    checkResetButtonState();
   });
 
   resetButton.addEventListener("click", () => {
+    // Reset all fields
     billInput.value = "";
     peopleInput.value = "";
     customInput.value = "";
 
+    // Reset state variables
     selectedTipPercent = null;
     billTouched = false;
     peopleTouched = false;
     tipTouched = false;
 
+    // Reset UI
     clearTipSelection();
     clearError(billError);
     clearError(tipError);
@@ -189,5 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tipPerPerson.textContent = "$0.00";
     totalPerPerson.textContent = "$0.00";
+
+    // Re-disables the button
+    disableResetButton();
   });
 });

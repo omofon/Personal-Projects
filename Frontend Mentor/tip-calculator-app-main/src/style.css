@@ -119,7 +119,7 @@
   }
 
   .reset-button.disabled {
-    @apply disabled:cursor-not-allowed disabled:opacity-40;
+    @apply disabled:cursor-not-allowed disabled:opacity-40 pointer-events-none;
   }
 }
 

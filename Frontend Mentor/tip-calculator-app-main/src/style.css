@@ -6,6 +6,7 @@
   /* Colors - Tailwind v4 auto-generates utilities from these */
   --color-primary: hsl(172, 67%, 45%);
   --color-primary-dark: hsl(183, 100%, 15%);
+  --color-primary-hover: hsl(172, 67%, 55%);
 
   --color-neutral-500: hsl(186, 14%, 43%);
   --color-neutral-400: hsl(184, 14%, 56%);
@@ -74,9 +75,9 @@
   /* Tip Button Styles */
   .tip-button {
     @apply px-6 py-3 rounded-md font-bold text-2xl text-white bg-primary-dark;
-    @apply hover:bg-primary hover:text-primary-dark;
+    @apply hover:bg-primary-hover hover:text-primary-dark;
     @apply transition-colors duration-200 cursor-pointer;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    /* @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2; */
   }
 
   /* Active state for selected tip button */
@@ -92,6 +93,7 @@
     @apply transition-all duration-200;
   }
 
+  /* Results section styling */
   .result-line {
     @apply flex justify-between items-center;
   }
@@ -106,6 +108,18 @@
 
   .result-value {
     @apply text-3xl text-primary tracking-wide;
+  }
+
+  /* Reset button styling */
+  .reset-button {
+    @apply w-full bg-primary text-primary-dark text-2xl text-center py-3 rounded-md font-bold;
+    @apply hover:bg-primary-hover;
+    @apply transition-all duration-200 cursor-pointer;
+    @apply transform active:translate-y-1;
+  }
+
+  .reset-button.disabled {
+    @apply disabled:cursor-not-allowed disabled:opacity-40;
   }
 }
 

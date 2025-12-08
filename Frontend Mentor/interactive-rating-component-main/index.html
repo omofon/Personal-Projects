@@ -1,49 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive rating component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <main>
+      <article id="rating-card">
+        <form id="rating-form">
+          <div class="round-ctn">
+            <img src="images/icon-star.svg" alt="Star icon" />
+          </div>
 
-  <!-- Rating state start -->
+          <h1 id="rating-label">How did we do?</h1>
 
-  How did we do?
+          <p>
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
 
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
+          <div
+            class="rating-btns"
+            role="radiogroup"
+            aria-labelledby="rating-label"
+          >
+            <button
+              class="round-ctn"
+              role="radio"
+              aria-checked="false"
+              id="rate-1"
+              value="1"
+            >
+              1
+            </button>
+            <button
+              class="round-ctn"
+              role="radio"
+              aria-checked="false"
+              id="rate-2"
+              value="2"
+            >
+              2
+            </button>
+            <button
+              class="round-ctn"
+              role="radio"
+              aria-checked="false"
+              id="rate-3"
+              value="3"
+            >
+              3
+            </button>
+            <button
+              class="round-ctn"
+              role="radio"
+              aria-checked="false"
+              id="rate-4"
+              value="4"
+            >
+              4
+            </button>
+            <button
+              class="round-ctn"
+              role="radio"
+              aria-checked="false"
+              id="rate-5"
+              value="5"
+            >
+              5
+            </button>
+          </div>
 
-  1 2 3 4 5
+          <button type="submit">Submit</button>
+        </form>
+      </article>
 
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      <article id="thank-you-card" hidden>
+        <div>
+          <img
+            src="images/illustration-thank-you.svg"
+            alt="Illustration of a receipt printing with a thank you message"
+          />
+        </div>
+        <p class="highlight">
+          You selected <span id="selected-rating">5</span> out of 5
+        </p>
+        <h1>Thank you!</h1>
+        <p>
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+      </article>
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        aria-label="Frontend Mentor (opens in a new tab)"
+      >
+        Frontend Mentor </a
+      >. Coded by <a href="https://github.com/omofon">Omofon</a>.
+    </footer>
+  </body>
 </html>

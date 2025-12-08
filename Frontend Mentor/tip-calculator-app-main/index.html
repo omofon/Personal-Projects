@@ -15,18 +15,23 @@
   </head>
 
   <body
-    class="flex flex-col items-center bg-neutral-200 min-h-screen pt-10 pb-10 space-y-10"
+    class="flex flex-col items-center bg-neutral-200 min-h-screen pt-10 pb-10 space-y-10 md:space-y-12 lg:space-y-20"
   >
-    <header class="logo-header mb-10">
+    <header class="logo-header">
       <img src="images/logo.svg" alt="Splitter Logo" />
     </header>
 
-    <main class="bg-white rounded-3xl p-6 flex-col max-w-lg">
-      <section class="splitter-card space-y-8">
+    <main
+      class="bg-white rounded-3xl p-6 max-w-lg md:max-w-2xl lg:max-w-4xl lg:p-8"
+    >
+      <section class="splitter-card space-y-8 lg:flex lg:gap-8">
         <!-- Input Panel -->
-        <div class="input-panel">
+        <div class="input-panel lg:flex-1 lg:px-2 lg:py-2">
           <!-- Solitter Form -->
-          <form class="splitter-form space-y-6" id="splitter-form">
+          <form
+            class="splitter-form space-y-6 lg:space-y-10"
+            id="splitter-form"
+          >
             <!-- Bill Field -->
             <div class="input-group">
               <div class="label-row">
@@ -58,7 +63,7 @@
                 <span class="error-message" id="tip-error"></span>
               </div>
 
-              <div class="tip-grid grid grid-cols-2 gap-4">
+              <div class="tip-grid grid grid-cols-2 gap-4 lg:grid-cols-3">
                 <button type="button" class="tip-button" data-tip="5">
                   5%
                 </button>
@@ -114,9 +119,9 @@
 
         <!-- Output Panel -->
         <div
-          class="output-panel bg-primary-dark rounded-2xl px-6 py-8 space-y-6"
+          class="output-panel bg-primary-dark rounded-2xl px-6 py-8 space-y-6 lg:flex-1 lg:px-10 lg:py-12 lg:flex lg:flex-col lg:justify-between"
         >
-          <div class="results-container space-y-4">
+          <div class="results-container space-y-4 lg:space-y-12">
             <div class="result-line">
               <div class="amount-label">
                 <p class="result-label">Tip Amount</p>

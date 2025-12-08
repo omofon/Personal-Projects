@@ -1,23 +1,60 @@
+/**
+ * Tip Calculator Styles
+ * Built with Tailwind CSS v4
+ * 
+ * Architecture:
+ * - Custom theme defines colors and typography
+ * - Base layer handles global resets
+ * - Components layer contains all custom utility classes
+ * - Responsive design: mobile-first with lg breakpoint (1024px)
+ */
+
+/* ========================================
+   TAILWIND IMPORTS
+   ======================================== */
 @import "tailwindcss";
 
+/* Google Fonts: Space Mono (700 weight only for performance) */
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
+/* ========================================
+   CUSTOM THEME CONFIGURATION
+   ======================================== */
 @theme {
-  /* Colors - Tailwind v4 auto-generates utilities from these */
+  /* 
+   * Primary Colors
+   * - primary: Strong cyan for accents and active states
+   * - primary-dark: Very dark cyan for text and button backgrounds
+   * - primary-hover: Lighter cyan for hover states
+   */
   --color-primary: hsl(172, 67%, 45%);
   --color-primary-dark: hsl(183, 100%, 15%);
   --color-primary-hover: hsl(172, 67%, 55%);
 
+  /* 
+   * Neutral Colors
+   * - 500: Dark grayish cyan for labels
+   * - 400: Grayish cyan for placeholders
+   * - 200: Light grayish cyan for body background
+   * - 50: Very light grayish cyan for input backgrounds
+   */
   --color-neutral-500: hsl(186, 14%, 43%);
   --color-neutral-400: hsl(184, 14%, 56%);
   --color-neutral-200: hsl(185, 41%, 84%);
   --color-neutral-50: hsl(189, 47%, 97%);
 
-  /* Font Family */
+  /* Typography: Single font family for consistent branding */
   --font-family-space: "Space Mono", monospace;
 }
 
+/* ========================================
+   BASE LAYER - Global Resets
+   ======================================== */
 @layer base {
+  /* 
+   * Reset default margins and padding on heading and paragraph elements
+   * Prevents unwanted spacing in tightly controlled layouts
+   */
   h1,
   h2,
   p {
@@ -25,54 +62,104 @@
     margin: 0;
   }
 
+  /* Apply custom font family to entire document */
   body {
     font-family: var(--font-family-space);
   }
 }
 
+/* ========================================
+   COMPONENTS LAYER - Custom Utilities
+   ======================================== */
 @layer components {
-  /* Label for form inputs */
+  /* -------------------- FORM INPUTS -------------------- */
+
+  /**
+   * Label styling for all form inputs
+   * Design: Medium gray, bold, consistent spacing
+   */
   label {
     @apply text-neutral-500 text-base font-bold mb-1;
   }
 
-  /* Form input group styling */
+  /**
+   * Input group container
+   * Wraps label and input field with consistent vertical spacing
+   */
   .input-group {
     @apply space-y-2;
   }
 
-  /* Input with image container styling */
+  /**
+   * Input field wrapper with icon
+   * Uses relative positioning to allow absolute positioning of icon
+   */
   .input-field {
     @apply relative flex items-center;
   }
 
-  /* Input box image styling */
+  /**
+   * Icon inside input fields (dollar sign, person icon)
+   * Positioned absolutely on left side, vertically centered
+   * z-10 ensures icon stays above input background
+   */
   .input-img {
     @apply absolute left-4 top-1/2 -translate-y-1/2 z-10 w-3;
   }
 
-  /* Input element styling */
+  /**
+   * Base input element styling
+   * - Right-aligned text (financial convention for numbers)
+   * - Large font size for easy mobile input
+   * - Custom focus ring matches brand color
+   * - Padding accounts for icon on left side
+   */
   input {
     @apply w-full text-2xl text-right text-primary-dark font-bold bg-neutral-50 rounded-sm px-4 py-2;
     @apply focus:outline-none focus:ring-2 focus:ring-primary;
   }
 
-  /* Label with error message container styling */
+  /**
+   * Label row with error message
+   * Flexbox layout pushes error message to the right
+   */
   .label-row {
     @apply flex justify-between lg:mb-1;
   }
 
-  /* Error Message Styles */
+  /* -------------------- ERROR HANDLING -------------------- */
+
+  /**
+   * Error message styling
+   * Hidden by default, shown via JavaScript when validation fails
+   * Red color for immediate visual feedback
+   */
   .error-message {
     @apply text-red-500 text-sm font-bold;
     display: none;
   }
 
+  /**
+   * Error message visible state
+   * JavaScript adds .visible class to show error
+   */
   .error-message.visible {
     display: block;
   }
 
-  /* Tip Button Styles */
+  /* -------------------- TIP SELECTION -------------------- */
+
+  /**
+   * Preset tip percentage buttons
+   * Design decisions:
+   * - Dark background matches branding
+   * - Large touch targets (px-6 py-3) for mobile usability
+   * - Hover state provides clear visual feedback
+   * - Smooth color transition for polished feel
+   * 
+   * Note: Focus ring commented out to maintain design consistency
+   * Consider re-enabling for accessibility if needed
+   */
   .tip-button {
     @apply px-6 py-3 rounded-md font-bold text-2xl text-white bg-primary-dark;
     @apply hover:bg-primary-hover hover:text-primary-dark;
@@ -80,12 +167,21 @@
     /* @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2; */
   }
 
-  /* Active state for selected tip button */
+  /**
+   * Active state for selected tip button
+   * Inverted colors clearly indicate which tip percentage is selected
+   * JavaScript adds/removes this class based on user interaction
+   */
   .tip-button.active {
     @apply bg-primary text-primary-dark;
   }
 
-  /* Custom input styling */
+  /**
+   * Custom tip percentage input
+   * Matches tip button size and styling for visual consistency
+   * Right-aligned text and placeholder for numerical input
+   * Responsive font size: smaller on desktop to fit 3-column grid
+   */
   .custom-input {
     @apply px-6 lg:px-2 py-3 rounded-md font-bold text-2xl lg:text-xl text-primary-dark bg-neutral-50;
     @apply text-right placeholder:text-right placeholder:text-neutral-400;
@@ -93,24 +189,52 @@
     @apply transition-all duration-200;
   }
 
-  /* Results section styling */
+  /* -------------------- RESULTS DISPLAY -------------------- */
+
+  /**
+   * Result line container (tip amount and total)
+   * Flexbox pushes label to left, value to right
+   * Centers items vertically for balanced appearance
+   */
   .result-line {
     @apply flex justify-between items-center;
   }
 
+  /**
+   * Result label text (e.g., "Tip Amount")
+   * White text for contrast against dark background
+   */
   .result-label {
     @apply text-base text-white font-medium;
   }
 
+  /**
+   * Result subtext (e.g., "/ person")
+   * Muted color to de-emphasize compared to main label
+   */
   .result-subtext {
     @apply text-sm text-neutral-500;
   }
 
+  /**
+   * Calculated value display ($X.XX)
+   * Primary color creates visual hierarchy
+   * Large size on desktop (lg:text-5xl) for dramatic impact
+   * Tracking adds subtle letter-spacing for readability
+   */
   .result-value {
     @apply text-3xl text-primary tracking-wide lg:text-5xl;
   }
 
-  /* Reset button styling */
+  /* -------------------- RESET BUTTON -------------------- */
+
+  /**
+   * Reset button
+   * Full-width for easy tapping on mobile
+   * Hover state provides feedback
+   * Active state adds subtle press effect (translateY)
+   * Smooth transitions for professional feel
+   */
   .reset-button {
     @apply w-full bg-primary text-primary-dark text-2xl text-center py-3 rounded-md font-bold;
     @apply hover:bg-primary-hover;
@@ -118,15 +242,34 @@
     @apply transform active:translate-y-1;
   }
 
+  /**
+   * Disabled state for reset button
+   * Applied via JavaScript when no data has been entered
+   * - Reduced opacity indicates unavailable state
+   * - pointer-events-none prevents click/hover interactions
+   * - cursor-not-allowed would show if pointer-events allowed
+   */
   .reset-button.disabled {
     @apply disabled:cursor-not-allowed disabled:opacity-40 pointer-events-none;
   }
 }
 
+/* ========================================
+   FOOTER / ATTRIBUTION
+   ======================================== */
+
+/**
+ * Attribution text styling
+ * Small, centered text for Frontend Mentor credit
+ */
 .attribution {
   @apply text-sm text-center;
 }
 
+/**
+ * Attribution links
+ * Standard blue for recognizable link appearance
+ */
 .attribution a {
   @apply text-blue-600;
 }

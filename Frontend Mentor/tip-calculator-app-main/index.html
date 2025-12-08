@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
     <link
       rel="icon"
       type="image/png"
@@ -11,34 +13,40 @@
     />
 
     <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Tailwind CSS compiled output -->
     <link rel="stylesheet" href="/src/output.css" />
   </head>
 
   <body
     class="flex flex-col items-center bg-neutral-200 min-h-screen pt-10 pb-10 space-y-10 md:space-y-12 lg:space-y-20"
   >
+    <!-- ==================== HEADER ==================== -->
     <header class="logo-header">
       <img src="images/logo.svg" alt="Splitter Logo" />
     </header>
 
+    <!-- ==================== MAIN CALCULATOR ==================== -->
     <main
       class="bg-white rounded-3xl p-6 max-w-lg md:max-w-2xl lg:max-w-4xl lg:p-8"
     >
       <section class="splitter-card space-y-8 lg:flex lg:gap-8">
-        <!-- Input Panel -->
+        <!-- ========== INPUT PANEL (Left Side) ========== -->
         <div class="input-panel lg:flex-1 lg:px-2 lg:py-2">
-          <!-- Solitter Form -->
+          <!-- Calculator Form -->
           <form
             class="splitter-form space-y-6 lg:space-y-10"
             id="splitter-form"
           >
-            <!-- Bill Field -->
+            <!-- Bill Amount Input -->
             <div class="input-group">
               <div class="label-row">
                 <label for="bill-amount">Bill</label>
+                <!-- Error message container (hidden by default) -->
                 <span class="error-message" id="bill-error"></span>
               </div>
               <div class="input-field">
+                <!-- Dollar icon positioned absolutely inside input -->
                 <img
                   src="images/icon-dollar.svg"
                   class="input-img"
@@ -56,14 +64,21 @@
               </div>
             </div>
 
-            <!-- Select Tip Field -->
+            <!-- Tip Selection (Buttons + Custom Input) -->
             <div class="tip-selection-group">
               <div class="label-row">
                 <label>Select Tip %</label>
+                <!-- Error message container (hidden by default) -->
                 <span class="error-message" id="tip-error"></span>
               </div>
 
+              <!-- 
+                Tip Grid: 2 columns on mobile, 3 columns on desktop
+                Contains 5 preset buttons + 1 custom input field
+              -->
               <div class="tip-grid grid grid-cols-2 gap-4 lg:grid-cols-3">
+                <!-- Preset tip percentage buttons -->
+                <!-- data-tip attribute stores the percentage value -->
                 <button type="button" class="tip-button" data-tip="5">
                   5%
                 </button>
@@ -79,6 +94,8 @@
                 <button type="button" class="tip-button" data-tip="50">
                   50%
                 </button>
+
+                <!-- Custom tip percentage input (replaces 6th button) -->
                 <input
                   type="number"
                   id="custom-amount"
@@ -90,14 +107,16 @@
               </div>
             </div>
 
-            <!-- Number of People Field -->
+            <!-- Number of People Input -->
             <div class="input-group">
               <div class="label-row">
                 <label for="num-people">Number of People</label>
+                <!-- Error message container (hidden by default) -->
                 <span class="error-message" id="people-error"></span>
               </div>
 
               <div class="input-field">
+                <!-- Person icon positioned absolutely inside input -->
                 <img
                   src="images/icon-person.svg"
                   class="input-img"
@@ -117,29 +136,34 @@
           </form>
         </div>
 
-        <!-- Output Panel -->
+        <!-- ========== OUTPUT PANEL (Right Side) ========== -->
         <div
           class="output-panel bg-primary-dark rounded-2xl px-6 py-8 space-y-6 lg:flex-1 lg:px-10 lg:py-12 lg:flex lg:flex-col lg:justify-between"
         >
+          <!-- Results Display Container -->
           <div class="results-container space-y-4 lg:space-y-12">
+            <!-- Tip Amount Per Person -->
             <div class="result-line">
               <div class="amount-label">
                 <p class="result-label">Tip Amount</p>
                 <p class="result-subtext">/ person</p>
               </div>
+              <!-- JavaScript updates this value dynamically -->
               <h2 class="result-value" id="tip-per-person">$0.00</h2>
             </div>
 
+            <!-- Total Amount Per Person -->
             <div class="result-line">
               <div class="amount-label">
                 <p class="result-label">Total</p>
                 <p class="result-subtext">/ person</p>
               </div>
+              <!-- JavaScript updates this value dynamically -->
               <h2 class="result-value" id="total-per-person">$0.00</h2>
             </div>
           </div>
 
-          <!-- RESET button -->
+          <!-- Reset Button (disabled by default until user enters data) -->
           <button type="button" class="reset-button" id="reset-button">
             RESET
           </button>
@@ -147,6 +171,7 @@
       </section>
     </main>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
@@ -154,6 +179,7 @@
       >. Coded by <a href="https://github.com/omofon">Omofon</a>.
     </footer>
 
+    <!-- JavaScript: Handles all calculations and interactions -->
     <script src="index.js"></script>
   </body>
 </html>

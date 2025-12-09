@@ -3,6 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
 
 /* font-family: "Overpass", sans-serif; */
+@theme {
+  --color-primary: hsl(25, 97%, 53%);
+  --color-neutral-500: hsl(217, 12%, 63%);
+  --color-neutral-900: hsl(213, 19%, 18%);
+  --color-neutral-950: hsl(216, 12%, 8%);
+
+  --font-family-overpass: "Overpass", sans-serif;
+}
 
 /* Footer Styling */
 .attribution {

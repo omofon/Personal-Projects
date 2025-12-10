@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
-    <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./src/output.css" />
     <title>Frontend Mentor | FAQ accordion</title>
   </head>
-  <body>
+  <body class="min-h-screen p-0 m-0 bg-primary-600">
     <!-- 
       ============================================================================
       HEADER - Responsive background pattern
@@ -16,10 +21,16 @@
       - Desktop (768px+): background-pattern-desktop.svg
       - Mobile (default): background-pattern-mobile.svg
     -->
-    <header class="purple-bg">
-      <picture>
-        <source media="(min-width: 768px)" srcset="./assets/images/background-pattern-desktop.svg" />
-        <img src="./assets/images/background-pattern-mobile.svg" alt="Purple background mobile screen" />
+    <header class="w-full h-auto overflow-hidden">
+      <picture class="block w-full h-full object-cover object-center">
+        <source
+          media="(min-width: 376px)"
+          srcset="./assets/images/background-pattern-desktop.svg"
+        />
+        <img
+          src="./assets/images/background-pattern-mobile.svg"
+          alt="Purple background mobile screen"
+        />
       </picture>
     </header>
 
@@ -28,8 +39,8 @@
       MAIN CONTENT - FAQ Accordion
       ============================================================================
     -->
-    <main>
-      <article id="faq-article">
+    <main class="relative flex items-center justify-center">
+      <article id="faq-article" class="bg-primary-100">
         <!-- Page title with decorative star icon -->
         <div class="faq__title">
           <img src="./assets/images/icon-star.svg" alt="Star icon" />
@@ -43,14 +54,26 @@
           - JavaScript handles toggle behavior via aria-expanded and hidden attributes
         -->
         <section class="faq__question">
-          
           <!-- FAQ Item 1 - Default open state -->
           <h3 class="faq__item-heading">
-            <button class="faq__question-button" aria-expanded="true" aria-controls="answer-one">
+            <button
+              class="faq__question-button"
+              aria-expanded="true"
+              aria-controls="answer-one"
+            >
               What is Frontend Mentor, and how will it help me?
               <span class="faq__question-icon">
-                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" hidden />
-                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" />
+                <img
+                  src="./assets/images/icon-plus.svg"
+                  alt="Plus icon"
+                  class="icon-plus"
+                  hidden
+                />
+                <img
+                  src="./assets/images/icon-minus.svg"
+                  alt="Minus icon"
+                  class="icon-minus"
+                />
               </span>
             </button>
           </h3>
@@ -66,11 +89,24 @@
 
           <!-- FAQ Item 2 -->
           <h3 class="faq__item-heading">
-            <button class="faq__question-button" aria-expanded="false" aria-controls="answer-two">
+            <button
+              class="faq__question-button"
+              aria-expanded="false"
+              aria-controls="answer-two"
+            >
               Is Frontend Mentor free?
               <span class="faq__question-icon">
-                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" />
-                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" hidden />
+                <img
+                  src="./assets/images/icon-plus.svg"
+                  alt="Plus icon"
+                  class="icon-plus"
+                />
+                <img
+                  src="./assets/images/icon-minus.svg"
+                  alt="Minus icon"
+                  class="icon-minus"
+                  hidden
+                />
               </span>
             </button>
           </h3>
@@ -85,11 +121,24 @@
 
           <!-- FAQ Item 3 -->
           <h3 class="faq__item-heading">
-            <button class="faq__question-button" aria-expanded="false" aria-controls="answer-three">
+            <button
+              class="faq__question-button"
+              aria-expanded="false"
+              aria-controls="answer-three"
+            >
               Can I use Frontend Mentor projects in my portfolio?
               <span class="faq__question-icon">
-                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" />
-                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" hidden />
+                <img
+                  src="./assets/images/icon-plus.svg"
+                  alt="Plus icon"
+                  class="icon-plus"
+                />
+                <img
+                  src="./assets/images/icon-minus.svg"
+                  alt="Minus icon"
+                  class="icon-minus"
+                  hidden
+                />
               </span>
             </button>
           </h3>
@@ -104,11 +153,24 @@
 
           <!-- FAQ Item 4 -->
           <h3 class="faq__item-heading">
-            <button class="faq__question-button" aria-expanded="false" aria-controls="answer-four">
+            <button
+              class="faq__question-button"
+              aria-expanded="false"
+              aria-controls="answer-four"
+            >
               How can I get help if I'm stuck on a challenge?
               <span class="faq__question-icon">
-                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" />
-                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" hidden />
+                <img
+                  src="./assets/images/icon-plus.svg"
+                  alt="Plus icon"
+                  class="icon-plus"
+                />
+                <img
+                  src="./assets/images/icon-minus.svg"
+                  alt="Minus icon"
+                  class="icon-minus"
+                  hidden
+                />
               </span>
             </button>
           </h3>
@@ -120,7 +182,6 @@
             </p>
           </div>
           <div class="faq__question--horizontal-line"></div>
-
         </section>
       </article>
     </main>
@@ -128,8 +189,9 @@
     <!-- Attribution footer -->
     <footer class="attribution">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
     </footer>
 
     <!-- FAQ accordion interaction script -->

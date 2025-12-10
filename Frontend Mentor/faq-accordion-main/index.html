@@ -3,65 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
     <link rel="stylesheet" href="./src/style.css" />
-
     <title>Frontend Mentor | FAQ accordion</title>
   </head>
   <body>
+    <!-- 
+      ============================================================================
+      HEADER - Responsive background pattern
+      ============================================================================
+      Uses <picture> element to serve different background images based on viewport
+      - Desktop (768px+): background-pattern-desktop.svg
+      - Mobile (default): background-pattern-mobile.svg
+    -->
     <header class="purple-bg">
       <picture>
-        <!-- Tablet Screen and above (min-width: 768px) -->
-        <source
-          media="(min-width: 768px)"
-          srcset="./assets/images/background-pattern-desktop.svg"
-          alt="Purple background tablets screen"
-        />
-
-        <!-- Mobile Screen (default) -->
-        <img
-          src="./assets/images/background-pattern-mobile.svg"
-          alt="Purple background mobile screen"
-        />
+        <source media="(min-width: 768px)" srcset="./assets/images/background-pattern-desktop.svg" />
+        <img src="./assets/images/background-pattern-mobile.svg" alt="Purple background mobile screen" />
       </picture>
     </header>
+
+    <!-- 
+      ============================================================================
+      MAIN CONTENT - FAQ Accordion
+      ============================================================================
+    -->
     <main>
       <article id="faq-article">
+        <!-- Page title with decorative star icon -->
         <div class="faq__title">
           <img src="./assets/images/icon-star.svg" alt="Star icon" />
           <h1>FAQs</h1>
         </div>
-        <section class="faq__question">
-          <!-- Question One -->
-          <h3 class="faq__item-heading">
-            <button
-              class="faq__question-button"
-              aria-expanded="true"
-              aria-controls="answer-one"
-            >
-              What is Frontend Mentor, and how will it help me?
 
+        <!-- 
+          FAQ Accordion Section
+          - Multiple items can be open simultaneously
+          - First item open by default (aria-expanded="true")
+          - JavaScript handles toggle behavior via aria-expanded and hidden attributes
+        -->
+        <section class="faq__question">
+          
+          <!-- FAQ Item 1 - Default open state -->
+          <h3 class="faq__item-heading">
+            <button class="faq__question-button" aria-expanded="true" aria-controls="answer-one">
+              What is Frontend Mentor, and how will it help me?
               <span class="faq__question-icon">
-                <img
-                  src="./assets/images/icon-plus.svg"
-                  alt="Plus icon"
-                  class="icon-plus"
-                  hidden
-                />
-                <img
-                  src="./assets/images/icon-minus.svg"
-                  alt="Minus icon"
-                  class="icon-minus"
-                />
+                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" hidden />
+                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" />
               </span>
             </button>
           </h3>
-
           <div class="faq__question-answer" id="answer-one">
             <p>
               Frontend Mentor offers realistic coding challenges to help
@@ -70,34 +62,18 @@
               for portfolio building.
             </p>
           </div>
-
           <div class="faq__question--horizontal-line"></div>
 
-          <!-- Question Two -->
+          <!-- FAQ Item 2 -->
           <h3 class="faq__item-heading">
-            <button
-              class="faq__question-button"
-              aria-expanded="false"
-              aria-controls="answer-two"
-            >
+            <button class="faq__question-button" aria-expanded="false" aria-controls="answer-two">
               Is Frontend Mentor free?
-
               <span class="faq__question-icon">
-                <img
-                  src="./assets/images/icon-plus.svg"
-                  alt="Plus icon"
-                  class="icon-plus"
-                />
-                <img
-                  src="./assets/images/icon-minus.svg"
-                  alt="Minus icon"
-                  class="icon-minus"
-                  hidden
-                />
+                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" />
+                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" hidden />
               </span>
             </button>
           </h3>
-
           <div class="faq__question-answer" id="answer-two" hidden>
             <p>
               Yes, Frontend Mentor offers both free and premium coding
@@ -105,34 +81,18 @@
               projects suitable for all skill levels.
             </p>
           </div>
-
           <div class="faq__question--horizontal-line"></div>
 
-          <!-- Question Three -->
+          <!-- FAQ Item 3 -->
           <h3 class="faq__item-heading">
-            <button
-              class="faq__question-button"
-              aria-expanded="false"
-              aria-controls="answer-three"
-            >
+            <button class="faq__question-button" aria-expanded="false" aria-controls="answer-three">
               Can I use Frontend Mentor projects in my portfolio?
-
               <span class="faq__question-icon">
-                <img
-                  src="./assets/images/icon-plus.svg"
-                  alt="Plus icon"
-                  class="icon-plus"
-                />
-                <img
-                  src="./assets/images/icon-minus.svg"
-                  alt="Minus icon"
-                  class="icon-minus"
-                  hidden
-                />
+                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" />
+                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" hidden />
               </span>
             </button>
           </h3>
-
           <div class="faq__question-answer" id="answer-three" hidden>
             <p>
               Yes, you can use projects completed on Frontend Mentor in your
@@ -140,34 +100,18 @@
               potential employers!
             </p>
           </div>
-
           <div class="faq__question--horizontal-line"></div>
 
-          <!-- Question Four -->
+          <!-- FAQ Item 4 -->
           <h3 class="faq__item-heading">
-            <button
-              class="faq__question-button"
-              aria-expanded="false"
-              aria-controls="answer-four"
-            >
+            <button class="faq__question-button" aria-expanded="false" aria-controls="answer-four">
               How can I get help if I'm stuck on a challenge?
-
               <span class="faq__question-icon">
-                <img
-                  src="./assets/images/icon-plus.svg"
-                  alt="Plus icon"
-                  class="icon-plus"
-                />
-                <img
-                  src="./assets/images/icon-minus.svg"
-                  alt="Minus icon"
-                  class="icon-minus"
-                  hidden
-                />
+                <img src="./assets/images/icon-plus.svg" alt="Plus icon" class="icon-plus" />
+                <img src="./assets/images/icon-minus.svg" alt="Minus icon" class="icon-minus" hidden />
               </span>
             </button>
           </h3>
-
           <div class="faq__question-answer" id="answer-four" hidden>
             <p>
               The best place to get help is inside Frontend Mentor's Discord
@@ -175,19 +119,20 @@
               seek support from other community members.
             </p>
           </div>
-
           <div class="faq__question--horizontal-line"></div>
+
         </section>
       </article>
     </main>
 
+    <!-- Attribution footer -->
     <footer class="attribution">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
     </footer>
 
+    <!-- FAQ accordion interaction script -->
     <script src="script/index.js"></script>
   </body>
 </html>

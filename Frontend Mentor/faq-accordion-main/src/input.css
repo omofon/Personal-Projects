@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @theme {
+  /* white */
   --color-primary-100: hsl(275, 100%, 97%);
   --color-primary-600: hsl(292, 16%, 49%);
   --color-primary-950: hsl(292, 42%, 14%);
@@ -21,6 +22,35 @@
     font-family: var(--font-family-work);
   }
 }
+
+@layer components {
+  .faq__question-button {
+    @apply flex justify-between items-center w-full text-left py-4 transition-colors duration-200 cursor-pointer;
+  }
+
+  .faq__question-heading {
+    @apply text-primary-950 text-lg font-semibold mr-4;
+    @apply hover:text-purple-600;
+  }
+
+  .faq__question-icon {
+    @apply flex items-center justify-center w-6 h-6;
+  }
+
+  .icon-plus,
+  .icon-minus {
+    @apply w-6 h-6 shrink-0;
+  }
+
+  .faq__question-answer p {
+    @apply text-primary-600 text-base leading-relaxed pb-4;
+  }
+
+  .faq__question--horizontal-line {
+    @apply border-b border-gray-300;
+  }
+}
+
 /* Footer Styling */
 .attribution {
   font-size: 11px;

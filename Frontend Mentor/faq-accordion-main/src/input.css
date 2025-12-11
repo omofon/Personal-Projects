@@ -47,7 +47,7 @@
   }
 
   .faq__question--horizontal-line {
-    @apply border-b border-gray-300;
+    @apply border-b border-gray-200;
   }
 }
 

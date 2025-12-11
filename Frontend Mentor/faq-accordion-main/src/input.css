@@ -42,8 +42,12 @@
     @apply w-6 h-6 shrink-0;
   }
 
+  .faq__question-answer {
+    @apply w-full overflow-hidden;
+  }
+
   .faq__question-answer p {
-    @apply text-primary-600 text-base leading-relaxed pb-4;
+    @apply text-primary-600 text-base leading-relaxed pb-4 w-full;
   }
 
   .faq__question--horizontal-line {

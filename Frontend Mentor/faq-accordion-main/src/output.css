@@ -13,7 +13,6 @@
     --spacing: 0.25rem;
     --container-xs: 20rem;
     --container-sm: 24rem;
-    --container-md: 28rem;
     --container-lg: 32rem;
     --container-xl: 36rem;
     --text-base: 1rem;
@@ -234,6 +233,9 @@
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
+  .w-\[calc\(100\%-4rem\)\] {
+    width: calc(100% - 4rem);
+  }
   .w-full {
     width: 100%;
   }
@@ -248,14 +250,6 @@
   }
   .border-collapse {
     border-collapse: collapse;
-  }
-  .-translate-y-20 {
-    --tw-translate-y: calc(var(--spacing) * -20);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-25 {
-    --tw-translate-y: calc(var(--spacing) * -25);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-30 {
     --tw-translate-y: calc(var(--spacing) * -30);
@@ -343,21 +337,6 @@
       max-width: var(--container-lg);
     }
   }
-  .md\:max-w-md {
-    @media (width >= 48rem) {
-      max-width: var(--container-md);
-    }
-  }
-  .md\:max-w-xl {
-    @media (width >= 48rem) {
-      max-width: var(--container-xl);
-    }
-  }
-  .md\:rounded {
-    @media (width >= 48rem) {
-      border-radius: 0.25rem;
-    }
-  }
   .md\:rounded-xl {
     @media (width >= 48rem) {
       border-radius: var(--radius-xl);
@@ -368,29 +347,19 @@
       padding-inline: calc(var(--spacing) * 8);
     }
   }
-  .md\:py-8 {
-    @media (width >= 48rem) {
-      padding-block: calc(var(--spacing) * 8);
-    }
-  }
   .md\:py-10 {
     @media (width >= 48rem) {
       padding-block: calc(var(--spacing) * 10);
     }
   }
-  .lg\:max-w-lg {
-    @media (width >= 64rem) {
-      max-width: var(--container-lg);
-    }
-  }
-  .lg\:max-w-xl {
-    @media (width >= 64rem) {
-      max-width: var(--container-xl);
-    }
-  }
   .xl\:max-h-80 {
     @media (width >= 80rem) {
       max-height: calc(var(--spacing) * 80);
+    }
+  }
+  .xl\:max-w-xl {
+    @media (width >= 80rem) {
+      max-width: var(--container-xl);
     }
   }
 }
@@ -444,7 +413,12 @@
     width: calc(var(--spacing) * 6);
     flex-shrink: 0;
   }
+  .faq__question-answer {
+    width: 100%;
+    overflow: hidden;
+  }
   .faq__question-answer p {
+    width: 100%;
     padding-bottom: calc(var(--spacing) * 4);
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));

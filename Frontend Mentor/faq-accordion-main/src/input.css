@@ -53,13 +53,8 @@
   .faq__question--horizontal-line {
     @apply border-b border-gray-200;
   }
-}
 
-/* Footer Styling */
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
+  .attribution {
+    @apply text-[11px] text-center;
+  }
 }
